@@ -10,6 +10,8 @@ function App() {
       <Navbar />
       <Home images={images} />
       <ProductCard />
+      <ProductCard />
+      <ProductCard />
     </>
   );
 }
