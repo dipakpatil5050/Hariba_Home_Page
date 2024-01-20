@@ -16,7 +16,7 @@ const images = [
   },
   {
     id: 4,
-    src: "https://haribadairyfarm.com/cdn/shop/files/slider-8.jpg?v=1705473457&width=1100",
+    src: "	https://haribadairyfarm.com/cdn/shop/files/slider-2-1.jpg?v=1676614407&width=1100",
     alt: "Image 4",
   },
 ];
