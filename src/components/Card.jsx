@@ -1,25 +1,29 @@
-// import React from "react";
-
-// function Card({ cards }) {
-//   console.log(username);
-//   return (
-//     <div className="relative card h-96 w-72 rounded-full m-8 flex items-center justify-center">
-//       <Card>
-//         {cards.map((item) => (
-//           <div key={item.id}>
-//             <img src={item.src} alt={item.alt} />
-//             <h4>{item.title}</h4>
-//           </div>
-//         ))}
-//       </Card>
-//     </div>
-//   );
-// }
-// export default Card;
 import React from "react";
+import { IoPricetagOutline } from "react-icons/io5";
 
-function Card() {
-  return <div>Card</div>;
+import "./Card.css";
+function Card({ src, title, alt, desc, price }) {
+  return (
+    <div className="card-container rounded-md m-7 p-2  flex flex-wrap">
+      <img
+        className=" card-img rounded-t-2xl rounded-b-xl"
+        src={src}
+        alt={alt}
+      />
+      <h1 className="card-title font-bold  flex items-center justify-center pt-5 pl-5 ">
+        {title.length ? title.substring(0, 10) : title}
+        <p className="font-thin text-xl  ">....</p>
+      </h1>
+      <p className="card-desc text-pink-400 m-2 flex items-center justify-center">
+        {desc.length ? desc.substring(0, 15) : desc}...
+      </p>
+
+      <strong></strong>
+      <strong className="m-1 flex items-center justify-center">
+        <IoPricetagOutline className="mr-1" /> ₹{price}
+      </strong>
+    </div>
+  );
 }
 
 export default Card;

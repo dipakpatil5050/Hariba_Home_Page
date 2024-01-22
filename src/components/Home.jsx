@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React from "react";
+import React, { useState } from "react";
 
 const Home = ({ images }) => {
   const settings = {
@@ -13,6 +13,7 @@ const Home = ({ images }) => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+
   return (
     <>
       <div className="imgslider">

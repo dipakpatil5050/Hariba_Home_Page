@@ -29,27 +29,27 @@ function Navbar() {
           } lg:flex  justify-between gap-5 items-center lg:order-2 text-[#593808]`}
         >
           <a href="/#">
-            <li className=" hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
               Home
             </li>{" "}
           </a>
           <a href="/about">
-            <li className=" hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
               About
             </li>{" "}
           </a>
           <a href="/products">
-            <li className=" hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
               Products
             </li>{" "}
           </a>
           <a href="/contacts">
-            <li className=" hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
               Contact
             </li>{" "}
           </a>
           <a href="/clients">
-            <li className=" hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
               Clients
             </li>{" "}
           </a>
