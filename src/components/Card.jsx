@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoPricetagOutline } from "react-icons/io5";
 
 import "./Card.css";
-import { Link, redirect, useNavigate } from "react-router-dom";
 
 function Card({ src, title, alt, desc, price }) {
   return (
-    <div
-      className="card-container rounded-md m-7 p-2  flex flex-wrap cursor-pointer"
-      onClick={console.log("Hello from here")}
-    >
+    <div className="card-container rounded-md m-7 p-2  flex flex-wrap cursor-pointer">
       <img
         className=" card-img rounded-t-2xl rounded-b-xl ease-out duration-500 scale-100 hover:scale-110"
         src={src}
@@ -26,7 +22,6 @@ function Card({ src, title, alt, desc, price }) {
       <strong className="m-1 flex items-center justify-center">
         <IoPricetagOutline className="mr-1" /> ₹{price}
       </strong>
-      <cardDetails />
     </div>
   );
 }

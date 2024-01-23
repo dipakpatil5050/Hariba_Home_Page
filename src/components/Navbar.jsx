@@ -9,18 +9,18 @@ function Navbar() {
   };
   return (
     <>
-      <header className="flex items-center justify-between">
-        <div className="logo">
+      <header className="flex items-center justify-between h-28">
+        <div className="logo flex items-center">
           <a href="#">
             <img
-              className="w-28 m-5 pl-3 logo "
+              className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50"
               src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
               alt="Company Logo"
             />
           </a>
         </div>
 
-        <nav className=" font-extralight opacity-1 main flex items-center justify-end mt-1 flex-wrap ml-3 mr-10 p-0 text-gray-900">
+        <nav className="font-extralight opacity-1 main flex items-center justify-end mt-1 flex-wrap ml-3 mr-10 p-0 text-gray-900">
           <button
             className="lg:hidden focus:outline-none bar "
             onClick={handleMobileMenuToggle}
@@ -30,7 +30,7 @@ function Navbar() {
           <ul
             className={`${
               isMobileMenuOpen
-                ? "block fixed absolute items-center flex flex-col justify-center top-36 right-0 bg-white transition duration-500 ease-in z-50 gap-10 w-full rounded-2xl text-xl"
+                ? "block fixed  items-center flex flex-col justify-center top-28 p-10 right-0 bg-gray-100 z-50 w-50% gap-2 rounded-sm opacity-90 shadow-inner text-xl hover:text-bg-[#593808] ml-40 "
                 : "hidden"
             } lg:flex  justify-between gap-5 items-center lg:order-2 text-[#593808]`}
           >

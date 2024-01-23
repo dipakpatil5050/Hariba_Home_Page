@@ -14,7 +14,7 @@ function App() {
       <Home images={images} />
       <div
         onClick={() => setShowModal(true)}
-        className="cards flex flex-wrap justify-center items-center mt-10"
+        className="cards flex flex-wrap justify-center items-center mt-10 duration-500"
       >
         <Card
           src={

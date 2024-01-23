@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { useState } from "react";
+import React from "react";
 
 const Home = ({ images }) => {
   const settings = {
@@ -16,7 +16,7 @@ const Home = ({ images }) => {
 
   return (
     <>
-      <div className="imgslider">
+      <div className="imgslider overflow-hidden">
         <Slider {...settings}>
           {images.map((item) => (
             <div key={item.id}>
