@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { X } from "lucide-react";
 import { IoPricetagOutline } from "react-icons/io5";
+import { MdAdd } from "react-icons/md";
+import { FiMinus } from "react-icons/fi";
 
 function CardModal({ onClose }) {
   const modalRef = useRef();
@@ -13,12 +15,18 @@ function CardModal({ onClose }) {
 
   const [price, setPrice] = useState(500);
 
+  const [quantity, setQuantity] = useState(1);
+
   const add = () => {
-    setPrice(price * 2);
+    setPrice(price + 500);
+    setQuantity(quantity + 1);
   };
 
   const remove = () => {
-    setPrice(price / 2);
+    if (price > 500) {
+      setPrice(price - 500);
+      setQuantity(quantity - 1);
+    }
   };
 
   return (
@@ -27,7 +35,7 @@ function CardModal({ onClose }) {
       onClick={closeModal}
       className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center text-black shadow-xl "
     >
-      <div className="mt-1 flex flex-col min-[320px]:pt-14 min-[320]:mb-8 text-white">
+      <div className="mt-1 flex flex-col min-[320px]:pt-14 min-[320]:mb-8 text-black">
         <div className="rounded-xl px-5 py-10 gap-4 flex flex-col items-center mx-4">
           <button
             onClick={onClose}
@@ -57,27 +65,39 @@ function CardModal({ onClose }) {
                 and family during special occasions, fasting, & simply relish as
                 a dessert. Enjoy this classic premium...
               </p>
-              <div className="mt-4">
-                <h4 className="text-black text-sm mb-0">Quantity</h4>
-                <button
-                  onClick={() => add()}
-                  className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900"
-                >
-                  +
-                </button>
-                <button
-                  onClick={() => remove()}
-                  className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900"
-                >
-                  -
-                </button>
-              </div>
+              <div className="price"></div>
               <div className="mt-3 flex items-center space-x-2">
                 <IoPricetagOutline className="text-xl" color="black" />
                 <span className="flex">
                   <strong className="text-xl text-gray-900 items-baseline">
-                    ₹ {price}
+                    <p>₹500 / kg</p>
                   </strong>
+                  {/* <h2 className="pt-10 text-black text-sm">{`Total = ${price}`}</h2> */}
+                </span>
+              </div>
+
+              <div className="p-5 pb-3 flex flex-row gap-3 items-center">
+                <h4 className="text-black text-sm"> Quantity : </h4>
+
+                <button
+                  onClick={() => add()}
+                  className="mb-2 mr-2 rounded-full items-center bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900"
+                >
+                  <MdAdd size={20} />
+                </button>
+                <h6 className="text-xl">{quantity}</h6>
+                <button
+                  onClick={() => remove()}
+                  className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900"
+                >
+                  <FiMinus size={20} />
+                </button>
+              </div>
+              <div className="mt-3 flex items-center space-x-2">
+                <span className="flex">
+                  <p className="text-xl text-thin text-gray-900 items-baseline">
+                    {`Subtotal: : ₹ ${price}`}
+                  </p>
                   {/* <h2 className="pt-10 text-black text-sm">{`Total = ${price}`}</h2> */}
                 </span>
               </div>
