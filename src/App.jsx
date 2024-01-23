@@ -3,13 +3,19 @@ import images from "./components/images.js";
 import Navbar from "./components/Navbar";
 import { ChakraProvider } from "@chakra-ui/react";
 import Card from "./components/Card.jsx";
+import CardModal from "./components/CardModal.jsx";
+import { useState } from "react";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <ChakraProvider>
       <Navbar />
       <Home images={images} />
-      <div className="cards flex flex-wrap justify-center items-center mt-10">
+      <div
+        onClick={() => setShowModal(true)}
+        className="cards flex flex-wrap justify-center items-center mt-10"
+      >
         <Card
           src={
             "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317"
@@ -77,6 +83,7 @@ function App() {
           price="1800"
         />
       </div>
+      {showModal && <CardModal onClose={() => setShowModal(false)} />}
     </ChakraProvider>
   );
 }
