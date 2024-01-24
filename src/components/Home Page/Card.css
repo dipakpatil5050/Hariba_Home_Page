@@ -1,5 +1,5 @@
 .card-container {
-  width: 18rem;
+  width: 25rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,3 @@
 .card-desc {
   font-size: 15px;
 }
-
-/* .card-img:hover {
-  background: none;
-} */

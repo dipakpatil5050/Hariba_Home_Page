@@ -69,13 +69,11 @@ function CardModal({ onClose }) {
               <div className="mt-3 flex items-center space-x-2">
                 <IoPricetagOutline className="text-xl" color="black" />
                 <span className="flex">
-                  <strong className="text-xl text-gray-900 items-baseline">
+                  <strong className="text-xl text-gray-900 items-baseline font-mono">
                     <p>₹500 / kg</p>
                   </strong>
-                  {/* <h2 className="pt-10 text-black text-sm">{`Total = ${price}`}</h2> */}
                 </span>
               </div>
-
               <div className="p-5 pb-3 flex flex-row gap-3 items-center">
                 <h4 className="text-black text-sm"> Quantity : </h4>
 

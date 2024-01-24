@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
-
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handleMobileMenuToggle = () => {
@@ -34,10 +33,10 @@ function Navbar() {
                 : "hidden"
             } lg:flex  justify-between gap-5 items-center lg:order-2 text-[#593808]`}
           >
-            <a href="/#">
+            <a href="/home">
               <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                 Home
-              </li>{" "}
+              </li>
             </a>
             <a href="/about">
               <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
@@ -49,7 +48,7 @@ function Navbar() {
                 Products
               </li>{" "}
             </a>
-            <a href="/contacts">
+            <a href="/contact">
               <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                 Contact
               </li>{" "}

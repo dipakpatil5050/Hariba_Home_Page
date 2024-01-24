@@ -28,4 +28,5 @@ const Home = ({ images }) => {
     </>
   );
 };
+
 export default Home;
