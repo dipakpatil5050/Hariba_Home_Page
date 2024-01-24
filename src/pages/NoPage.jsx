@@ -6,7 +6,7 @@ export function NoPage() {
   return (
     <>
       <Navbar />
-      <div className="py-10 h-screen w-screen flex items-center justify-center">
+      <div className="py-10 h-[60rem] w-screen flex items-center justify-center">
         <div className="text-center">
           <p className="text-base font-semibold text-black">404</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">
@@ -17,6 +17,7 @@ export function NoPage() {
           </p>
           <div className="mt-4 flex items-center justify-center gap-x-3">
             <button
+              //   onChange={(window.location.href = "/home")}
               type="button"
               className="inline-flex items-center rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >

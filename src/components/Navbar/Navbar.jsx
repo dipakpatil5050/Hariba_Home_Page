@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { BsCart3 } from "react-icons/bs";
+
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handleMobileMenuToggle = () => {
@@ -29,9 +31,9 @@ function Navbar() {
           <ul
             className={`${
               isMobileMenuOpen
-                ? "block fixed  items-center flex flex-col justify-center top-28 p-10 right-0 bg-gray-100 z-50 w-50% gap-2 rounded-sm opacity-90 shadow-inner text-xl hover:text-bg-[#593808] ml-40 "
+                ? "block fixed  items-center flex flex-col justify-end top-28 p-10 right-0 bg-gray-100 z-50 w-50% gap-2 rounded-sm opacity-90 shadow-inner text-xl hover:text-bg-[#593808] ml-40 "
                 : "hidden"
-            } lg:flex  justify-between gap-5 items-center lg:order-2 text-[#593808]`}
+            } lg:flex justify-between gap-5 items-center lg:order-2 text-[#593808]`}
           >
             <a href="/home">
               <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
@@ -60,6 +62,12 @@ function Navbar() {
             </a>
           </ul>
         </nav>
+
+        <div className="cart shopping-cart-icon pr-10">
+          <BsCart3 size={25} />
+        <i class="shopping"></i>
+
+        </div>
       </header>
     </>
   );

@@ -4,6 +4,8 @@ import { IoPricetagOutline } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
 
+import "./Card.css";
+
 function CardModal({ onClose }) {
   const modalRef = useRef();
 
@@ -33,9 +35,9 @@ function CardModal({ onClose }) {
     <div
       ref={modalRef}
       onClick={closeModal}
-      className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center text-black shadow-xl "
+      className="fixed inset-0 bg-opacity-30 mt-28 backdrop-blur-sm flex items-center justify-center text-black shadow-xl "
     >
-      <div className="mt-1 flex flex-col min-[320px]:pt-14 min-[320]:mb-8 text-black">
+      <div className="mt-1 flex flex-col min-[320px]:pt-14 min-[320px]:mb-8 text-black">
         <div className="rounded-xl px-5 py-10 gap-4 flex flex-col items-center mx-4">
           <button
             onClick={onClose}
@@ -98,6 +100,13 @@ function CardModal({ onClose }) {
                   </p>
                   {/* <h2 className="pt-10 text-black text-sm">{`Total = ${price}`}</h2> */}
                 </span>
+              </div>
+              <div className="addToCartBtn">
+                <a href="#">
+                  <button className="bn-32 bn32 bg-[#251805] hover:bg-white  text-white mt-10">
+                    Add to Cart
+                  </button>
+                </a>
               </div>
             </div>
           </div>

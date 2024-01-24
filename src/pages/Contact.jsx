@@ -5,7 +5,7 @@ function Contact() {
   return (
     <>
       <Navbar />
-      <div className="h-screen w-screen flex items-center justify-center overflow-hidden flex-col">
+      <div className="h-[60rem] w-screen flex items-center justify-center overflow-hidden flex-col">
         <h1 className="p-10 text-5xl">Coming soon....</h1>
       </div>
     </>
