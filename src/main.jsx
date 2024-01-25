@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Clients from "./pages/Clients.jsx";
 import Products from "./pages/Products.jsx";
+import ShoppingCart from "./components/Shopping Cart/ShoppingCart.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products />} />
       <Route path="/clients" element={<Clients />} />
       <Route path="/error" element={<NoPage />} />
+      <Route path="/cart" element={<ShoppingCart />} />
       {/* </ErrorBoundary> */}
     </Route>
   )

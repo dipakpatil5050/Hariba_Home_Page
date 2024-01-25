@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { BsCart3 } from "react-icons/bs";
-
+// import ShoppingCart from "../Shopping Cart/ShoppingCart";
+// import { HoverCart } from "../Shopping Cart/HoverCart";
 function Navbar() {
+  // const [showModal1, setShowModal1] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
   return (
     <>
-      <header className="flex items-center justify-between h-28">
+      <header
+        // onClick={setShowModal1(true)}
+        className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
+      >
         <div className="logo flex items-center">
           <a href="#">
             <img
@@ -58,17 +63,19 @@ function Navbar() {
             <a href="/clients">
               <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                 Clients
-              </li>{" "}
+              </li>
             </a>
           </ul>
         </nav>
-
-        <div className="cart shopping-cart-icon pr-10">
-          <BsCart3 size={25} />
-        <i class="shopping"></i>
-
-        </div>
+        {/* onClick={setShowModal1(true)} */}
+        <button>
+          <div className="cart shopping-cart-icon pr-20">
+            <BsCart3 size={25} />
+            <i class="shopping"></i>
+          </div>
+        </button>
       </header>
+      {/* {showModal1 && <HoverCart onClose={() => setShowModal1(false)} />} */}
     </>
   );
 }
