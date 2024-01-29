@@ -3,7 +3,6 @@ import { X } from "lucide-react";
 import { IoPricetagOutline } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
-import { ChevronLeft, ChevronRight, Heart, Share } from "lucide-react";
 import "./Card.css";
 import { toast } from "react-toastify";
 

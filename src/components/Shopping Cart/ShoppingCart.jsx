@@ -63,7 +63,7 @@ function ShoppingCart() {
                 Items in your shopping cart
               </h2>
               <ul role="list" className="divide-y divide-gray-200">
-                {products.map((product, productIdx) => (
+                {products.map((product) => (
                   <div className="">
                     <li key={product.id} className="flex py-6 sm:py-6 ">
                       <div className="flex-shrink-0">

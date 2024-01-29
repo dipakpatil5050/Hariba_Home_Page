@@ -44,16 +44,12 @@ export function HoverCart({ onClose }) {
 
   return (
     <div
-      className=" fixed inset-0 flex h-[10vh] w-[vw] items-start min-[390px]:mt-14 mr-0 justify-end my-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
+      className=" fixed inset-0 flex h-[10vh] w-[vw] items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
       aria-modal="true"
       role="dialog"
       tabIndex={-1}
     >
       <div className="mt-6 space-y-6 bg-white p-5 rounded-lg min-[390px]:mt-7 ">
-        <button className=" place-self-start z-50 relative ml-auto block text-gray-600 transition hover:scale-110">
-          <span className="sr-only">Close cart</span>
-          <X size={24} />
-        </button>
         <ul className="space-y-4">
           {products.map((product) => (
             <li key={product.id} className="flex items-center gap-4">
@@ -66,7 +62,7 @@ export function HoverCart({ onClose }) {
                 <h3 className="text-xl font-bold text-gray-900">
                   {product.name}
                 </h3>
-                <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
+                <div className="mt-0.5 space-y-px text-[10px] text-gray-600">
                   <div>
                     <dd className="flex font-light text-[11px] ">
                       {product.quantity} x {product.price}
@@ -83,8 +79,7 @@ export function HoverCart({ onClose }) {
                       </div>
                     </dd>
                   </div>
-                  <div></div>
-                </dl>
+                </div>
               </div>
             </li>
           ))}

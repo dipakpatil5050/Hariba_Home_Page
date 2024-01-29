@@ -17,7 +17,6 @@ const Login = () => {
     if (username === "admin" && password === "admin") {
       setIsAuthenticate(true);
       toast.success("Login successful!");
-      // window.location.href = "/home";
     } else {
       if (username != "admin") {
         toast.error("Invalid username");

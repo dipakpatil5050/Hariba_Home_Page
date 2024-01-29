@@ -1,9 +1,3 @@
-import React, { useState } from "react";
-import { IoPricetagOutline } from "react-icons/io5";
-import CardModal from "./CardModal";
-import "./Card.css";
-import { RefreshCcw } from "lucide-react";
-
 const CardData = [
   {
     id: 1,
@@ -151,69 +145,159 @@ const CardData = [
   },
 ];
 
-function Card() {
-  const [showModal, setShowModal] = useState(false);
+export default CardData;
 
-  const [visible, setVisible] = useState(6);
+// import React from "react";
+// import Product from "./Product";
+// import { useEffect, useState } from "react";
 
-  const showMoreItems = () => {
-    setVisible((prevValue) => prevValue + 6);
-  };
-  return (
-    <>
-      <div className="div rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer ">
-        {CardData?.slice(0, visible).map((product) => (
-          <div className="group relative" key={product.id}>
-            <div
-              className="card-container rounded-md h-[350px] m-7 p-2 flex flex-wrap cursor-pointer"
-              onClick={() => setShowModal(true)}
-            >
-              <img
-                className=" card-img rounded-t-2xl rounded-b-xl ease-out duration-500 scale-100 hover:scale-110"
-                src={product.src}
-                alt={product.alt}
-              />
-              <h1 className="card-title font-bold  flex items-center justify-center pt-5 pl-5 cursor-pointer">
-                {product.title.length
-                  ? product.title.substring(0, 20)
-                  : product.title}
-                {/* {product.title} */}
-                <p className="font-thin text-xl  ">....</p>
-              </h1>
-              <p className="card-desc text-[#593808] m-2 text-base flex items-center justify-center">
-                {product.desc.length
-                  ? product.desc.substring(0, 35)
-                  : product.desc}
-                ...
-                {/* {product.desc} */}
-              </p>
+// const freshProds = [
+//   {
+//     id: "1",
+//     src: "/images/100p.jpeg",
+//     name: "100 Plus",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "2",
+//     src: "/images/Ajinomoto.jpeg",
+//     name: "Ajinomoto",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "3",
+//     src: "/images/Almondnuts.jpg",
+//     name: "Almondnuts",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "4",
+//     src: "/images/almudis.jpeg",
+//     name: "Almudish",
+//     category: "Groceries",
+//   },
+//   { id: "5", src: "/images/apollo.jpg", name: "Apollo", category: "Groceries" },
+//   {
+//     id: "6",
+//     src: "/images/blueberryjuice.jpg",
+//     name: "BlueBerry Juice",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "7",
+//     src: "/images/cheeseball.jpg",
+//     name: "Cheeseball",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "8",
+//     src: "/images/cococnut.png",
+//     name: "Cococnut",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "9",
+//     src: "/images/coffeemate.jpg",
+//     name: "Coffeemate",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "10",
+//     src: "/images/cordialblackcurrent.jpg",
+//     name: "Cordialblackcurrent",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "11",
+//     src: "/images/datessaad.jpg",
+//     name: "Datessaad",
+//     category: "Groceries",
+//   },
+//   { id: "12", src: "/images/dixy.webp", name: "Dixy", category: "Groceries" },
+//   {
+//     id: "13",
+//     src: "/images/fruitcoc.jpeg",
+//     name: "fruitcoc",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "14",
+//     src: "/images/fruitcocktale.jpeg",
+//     name: "fruitcocktale",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "15",
+//     src: "/images/indocafe.jpg",
+//     name: "indocafe",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "16",
+//     src: "/images/indocreamer.jpeg",
+//     name: "Indocreamer",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "17",
+//     src: "/images/milo400.webp",
+//     name: "Milo",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "18",
+//     src: "/images/milodrinkk.png",
+//     name: "Milodrinkk",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "19",
+//     src: "/images/nutella.jpeg",
+//     name: "Nutella",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "20",
+//     src: "/images/Pasta-Sauce-Traditional.jpeg",
+//     name: "Pasta-Sauce",
+//     category: "Groceries",
+//   },
+//   {
+//     id: "21",
+//     src: "/images/safabs.jpeg",
+//     name: "Safabs",
+//     category: "Groceries",
+//   },
+// ];
 
-              <strong className="m-1 flex items-center justify-center">
-                <IoPricetagOutline className="mr-2" /> ₹{product.price}
-              </strong>
-            </div>
-          </div>
-        ))}
-        {showModal && <CardModal onClose={() => setShowModal(false)} />}
-      </div>
-      <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
-        <button
-          className=" content-between flex items-center bg-transparent hover:bg-[#251805] text-[#251805] font-normal  hover:text-white py-5 px-5 border border-[#251805] hover:border-transparent rounded"
-          onClick={showMoreItems}
-        >
-          More Products{" "}
-          <span className="pl-2 ">
-            <RefreshCcw
-              size={17}
-              className="text-thin changeColor"
-              color="gray"
-              style={{ transform: "rotate(90deg)" }}
-            />
-          </span>
-        </button>
-      </div>
-    </>
-  );
-}
+// function FreshProd() {
+//   const [visible, setVisible] = useState(6);
 
-export default Card;
+//   const showMoreItems = () => {
+//     setVisible((prevValue) => prevValue + 6);
+//   };
+//   return (
+//     <div>
+//       <div className="grid grid-cols-3">
+//         {freshProds?.slice(0, visible).map((freshprod) => (
+//           <Product
+//             key={freshprod.id}
+//             src={freshprod.src}
+//             name={freshprod.name}
+//             category={freshprod.category}
+//           />
+//         ))}
+//       </div>
+//       <div className=" flex flex-col  pt-12	">
+//         <button
+//           className=" content-between bg-transparent hover:bg-green-800 text-green-800 font-semibold hover:text-white py-2 px-4 border border-green-800 hover:border-transparent rounded"
+//           onClick={showMoreItems}
+//         >
+//           Load More
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default FreshProd;

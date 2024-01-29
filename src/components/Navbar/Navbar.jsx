@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { BsCart3 } from "react-icons/bs";
-// import ShoppingCart from "../Shopping Cart/ShoppingCart";
+import ShoppingCart from "../Shopping Cart/ShoppingCart";
+import { HoverCart } from "../Shopping Cart/HoverCart";
 // import { HoverCart } from "../Shopping Cart/HoverCart";
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
@@ -50,11 +51,28 @@ function Navbar() {
                 About
               </li>{" "}
             </a>
-            <a href="/products">
-              <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+            <li className="relative group">
+              <a
+                href="/products"
+                className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3"
+              >
                 Products
-              </li>{" "}
-            </a>
+              </a>
+              <ul className="absolute hidden group-hover:block bg-gray-100 rounded-md p-20 gap-10 shadow-md mt-1">
+                <li>
+                  <a href="/category1">Category 1</a>
+                </li>
+                <li>
+                  <a href="/category2">Category 2</a>
+                </li>
+                <li>
+                  <a href="/category2">Category 2</a>
+                </li>
+                <li>
+                  <a href="/category2">Category 2</a>
+                </li>
+              </ul>
+            </li>
             <a href="/contact">
               <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                 Contact
@@ -68,12 +86,17 @@ function Navbar() {
           </ul>
         </nav>
         {/* onClick={setShowModal1(true)} */}
-        <button>
-          <div className="cart shopping-cart-icon pr-20">
+        <div className="relative group">
+          <a
+            href="/cart"
+            className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
+          >
             <BsCart3 size={25} />
-            <i class="shopping"></i>
+          </a>
+          <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
+            <HoverCart />
           </div>
-        </button>
+        </div>
       </header>
       {/* {showModal1 && <HoverCart onClose={() => setShowModal1(false)} />} */}
     </>
