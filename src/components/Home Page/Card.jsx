@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoPricetagOutline } from "react-icons/io5";
 import CardModal from "./CardModal";
 import "./Card.css";
@@ -152,6 +152,15 @@ const CardData = [
 ];
 
 function Card() {
+
+
+  
+  async function getCard() {
+    const response = await fetch("http://localhost:3000/data");
+    const data = await response.json();
+    setProducts(data.products);
+  }
+
   const [showModal, setShowModal] = useState(false);
 
   const [visible, setVisible] = useState(6);
@@ -207,7 +216,6 @@ function Card() {
               size={17}
               className="text-thin changeColor"
               color="gray"
-              style={{ transform: "rotate(90deg)" }}
             />
           </span>
         </button>

@@ -12,22 +12,6 @@ const products = [
     imageSrc:
       "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
   },
-  {
-    id: 2,
-    name: "Punch Rose WARAKH",
-    href: "#",
-    price: "₹800 / kg",
-    imageSrc:
-      "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
-  },
-  {
-    id: 3,
-    name: "ADADIYA PAK",
-    href: "#",
-    price: "₹800 / kg",
-    imageSrc:
-      "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  },
 ];
 
 function ShoppingCart() {

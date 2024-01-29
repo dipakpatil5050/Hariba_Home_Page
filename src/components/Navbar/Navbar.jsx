@@ -11,6 +11,9 @@ function Navbar() {
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const [productCount, setProductCount] = useState(0);
+  
   return (
     <>
       <header
@@ -92,6 +95,7 @@ function Navbar() {
             className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
           >
             <BsCart3 size={25} />
+            <span className="absolute top-5 right-12 pr-3">{productCount}</span>
           </a>
           <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
             <HoverCart />
