@@ -32,7 +32,7 @@ const products = [
   },
 ];
 
-export function HoverCart({ onClose }) {
+export default function HoverCart() {
   // const hoverCartModal = useRef();
 
   // const closecart = (e) => {

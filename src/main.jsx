@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Clients from "./pages/Clients.jsx";
 import Products from "./pages/Products.jsx";
 import ShoppingCart from "./components/Shopping Cart/ShoppingCart.jsx";
+import { CartProvider } from "./contexts/CartContext.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    {/* <CartProvider>
+      <App />
+    </CartProvider> */}
     <ToastContainer
       position="top-right"
       autoClose={5000}

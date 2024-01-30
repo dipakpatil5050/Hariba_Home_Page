@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { IoPricetagOutline } from "react-icons/io5";
 import CardModal from "./CardModal";
 import "./Card.css";
 import { RefreshCcw } from "lucide-react";
+// import { Link } from "react-router-dom";
 
 const CardData = [
   {
@@ -152,29 +153,19 @@ const CardData = [
 ];
 
 function Card() {
-
-
-  
-  async function getCard() {
-    const response = await fetch("http://localhost:3000/data");
-    const data = await response.json();
-    setProducts(data.products);
-  }
-
   const [showModal, setShowModal] = useState(false);
-
   const [visible, setVisible] = useState(6);
-
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
   };
+
   return (
     <>
-      <div className="div rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer ">
+      <div className="div rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
         {CardData?.slice(0, visible).map((product) => (
           <div className="group relative" key={product.id}>
             <div
-              className="card-container rounded-md h-[350px] m-7 p-2 flex flex-wrap cursor-pointer"
+              className="card-container rounded-md h-[390px] m-7 p-2 flex flex-wrap cursor-pointer"
               onClick={() => setShowModal(true)}
             >
               <img
@@ -197,9 +188,16 @@ function Card() {
                 {/* {product.desc} */}
               </p>
 
-              <strong className="m-1 flex items-center justify-center">
-                <IoPricetagOutline className="mr-2" /> ₹{product.price}
-              </strong>
+              <div className="pricediv flex item-center justify-evenly mt-8">
+                <strong className="m-1 flex items-center justify-center">
+                  <IoPricetagOutline className="mr-2" /> ₹{product.price}
+                </strong>
+                <div className="addToCartBtn">
+                  <button className="bn-32 bn32 w-48 text-lg bg-[#251805] hover:bg-white  text-white items-center rounded-lg">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         ))}
@@ -210,7 +208,7 @@ function Card() {
           className=" content-between flex items-center bg-transparent hover:bg-[#251805] text-[#251805] font-normal  hover:text-white py-5 px-5 border border-[#251805] hover:border-transparent rounded"
           onClick={showMoreItems}
         >
-          More Products{" "}
+          More Products
           <span className="pl-2 ">
             <RefreshCcw
               size={17}

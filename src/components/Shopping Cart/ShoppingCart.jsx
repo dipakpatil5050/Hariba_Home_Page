@@ -1,11 +1,19 @@
 import { Trash } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
 import Navbar from "../Navbar/Navbar";
 const products = [
   {
     id: 1,
+    name: "Kaju katli",
+    href: "#",
+    price: "₹500 / Kg",
+    imageSrc:
+      "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
+  },
+  {
+    id: 2,
     name: "Kaju katli",
     href: "#",
     price: "₹500 / Kg",
@@ -27,9 +35,14 @@ function ShoppingCart() {
     if (quantity > 1 && price > 500) {
       setPrice(price - 500);
       setQuantity(quantity - 1);
+    } else {
+      toast.warning("select minimum one item");
     }
   };
 
+  useEffect(() => {
+    console.log(products);
+  }, []);
   return (
     <>
       <Navbar />
@@ -48,7 +61,7 @@ function ShoppingCart() {
               </h2>
               <ul role="list" className="divide-y divide-gray-200">
                 {products.map((product) => (
-                  <div className="">
+                  <div className="" key={product.id}>
                     <li key={product.id} className="flex py-6 sm:py-6 ">
                       <div className="flex-shrink-0">
                         <img
@@ -61,17 +74,6 @@ function ShoppingCart() {
                       <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
                           <div>
-                            <div className="flex justify-between">
-                              <h3 className="text-sm">
-                                <a
-                                  href={product.href}
-                                  className="font-semibold text-black"
-                                >
-                                  {product.name}
-                                </a>
-                              </h3>
-                            </div>
-
                             <div className="mt-1 flex items-end">
                               <p className="text-sm font-medium text-gray-900">
                                 &nbsp;&nbsp;{product.price}
@@ -111,10 +113,11 @@ function ShoppingCart() {
                           type="button"
                           className="flex items-center space-x-1 px-2 py-1 pl-0"
                         >
-                          <Trash size={12} className="text-red-500" />
-                          <span className="text-xs font-medium text-red-500">
-                            Remove
-                          </span>
+                          <Trash
+                            size={12}
+                            color="red"
+                            className="text-red-500"
+                          />
                         </button>
                       </div>
                     </div>
