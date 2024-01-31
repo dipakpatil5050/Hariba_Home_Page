@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
 import { Trash } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -44,7 +45,7 @@ export default function HoverCart() {
 
   return (
     <div
-      className=" fixed inset-0 flex h-[10vh] w-[vw] items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
+      className=" fixed inset-0 flex h-[10vh] w-[vw]  items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
       aria-modal="true"
       role="dialog"
       tabIndex={-1}
@@ -101,12 +102,11 @@ export default function HoverCart() {
           >
             Checkout
           </button>
-          <a
-            href="#"
-            className="inline-block text-sm text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4"
-          >
-            Continue shopping &rarr;
-          </a>
+          <Link to="/home">
+            <p className="inline-block text-sm text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4">
+              Continue shopping &rarr;
+            </p>
+          </Link>
         </div>
       </div>
     </div>

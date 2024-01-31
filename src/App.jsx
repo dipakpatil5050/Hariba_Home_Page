@@ -12,8 +12,8 @@ function App() {
     //   <Layout />
     //   <Home images={images} />
     // </ChakraProvider>
-    <Login />
-    // <Products />
+    // <Login />
+    <Products />
   );
 }
 
