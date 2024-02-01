@@ -8,11 +8,41 @@ import { RefreshCcw } from "lucide-react";
 function Card() {
   const [showModal, setShowModal] = useState(false);
   const [visible, setVisible] = useState(6);
+  const [selectedProduct, setSelectedProduct] = useState([null]);
+  const [data, setData] = useState([]);
+  const [postId, setPostId] = useState("");
+  const [data2, setData2] = useState([]);
+
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
   };
 
-  const [data, setData] = useState([]);
+  const handleAddToCart = (productId) => {
+    const product = data.find((item) => item.id === productId);
+    setSelectedProduct(product);
+    setShowModal(true);
+    console.log(product);
+  };
+
+  // function handleInput(e) {
+  //   console.log(e.target.value);
+  //   setSelectedProduct(e.target.title);
+  // }
+
+  // const fetchPostData = async () => {
+  //   const response = await fetch(`http://localhost:3000/data`, {
+  //     method: "POST",
+
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ id: 1 }),
+  //   });
+  //   const jsonData = await response.json();
+  //   setData2(jsonData);
+  // };
+  // fetchPostData();
+  // console.log(jsonData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,16 +92,34 @@ function Card() {
                     <IoPricetagOutline className="mr-2" /> ₹{product.price}
                   </strong>
                   <div className="addToCartBtn flex items-center justify-center mt-4">
-                    <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg">
-                      Add to Cart
+                    <button
+                      className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg"
+                      // value={product.id}
+                      // key={product.id}
+                      // onClick={(e) => handleInput(e, "value")}
+                      onClick={() => handleAddToCart(product.id)}
+                    >
+                      add to cart
                     </button>
+
+                    {/* <button
+                      value={product.id}
+                      onClick={(e) => handleInput(e, "value")}
+                    >
+                      click
+                    </button> */}
                   </div>
                 </div>
               </div>
             </div>
           );
         })}
-        {showModal && <CardModal onClose={() => setShowModal(false)} />}
+        {/* {showModal && (
+          <CardModal
+            product={selectedProduct}
+            onClose={() => setShowModal(false)}
+          />
+        )} */}
       </div>
       <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
         <button
@@ -87,6 +135,8 @@ function Card() {
             />
           </span>
         </button>
+
+        {/* <button value={"1"} onClick={(e) => handleInput(e, "value")}></button> */}
       </div>
     </>
   );

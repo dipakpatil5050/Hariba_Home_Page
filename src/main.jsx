@@ -40,9 +40,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    <CartProvider>
-      <App />
-    </CartProvider>
+    {/* <CartProvider>
+      // <App />
+    </CartProvider> */}
     <ToastContainer
       position="top-right"
       autoClose={5000}

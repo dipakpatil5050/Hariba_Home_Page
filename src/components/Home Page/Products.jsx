@@ -11,199 +11,27 @@ export default function Products() {
 
   const toggle = () => setshowModal((prevShowModal) => !prevShowModal);
 
-  // const products = [
-  //   {
-  //     id: 1,
-  //     title: "KAJU KATLI WITHOUT WARAKH & MAWA",
-  //     desc: "Dryfruit Punch Rose is a classic premium sweet from Gujarat,",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "500",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "MOHAN THAL",
-  //     desc: "Mohan thal is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
-  //     alt: "image not showing",
-  //     price: "113",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Punch Rose WARAKH & MAWA",
-  //     desc: "DRYFRUIT PUNCH ROSE Description and many more thing",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint78_1880x.jpg?v=1690267171",
-  //     alt: "image not showing",
-  //     price: "480",
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "ADADIYA PAK",
-  //     desc: "addidya pak is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "BUY ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "COW GHEE Desciption is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint74_1880x.jpg?v=1690184306",
-  //     alt: "image not showing",
-  //     price: "1800",
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Ghee ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "DRYFRUIT PUNCH ROSE is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/dry-fruits-nutritional-punch_870x.jpg?v=1683108223",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 7,
-  //     title: "KAJU KATLI WITHOUT WARAKH & MAWA",
-  //     desc: "Dryfruit Punch Rose is a classic premium sweet from Gujarat,",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "500",
-  //   },
-  //   {
-  //     id: 8,
-  //     title: "MOHAN THAL",
-  //     desc: "Mohan thal is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
-  //     alt: "image not showing",
-  //     price: "113",
-  //   },
-  //   {
-  //     id: 9,
-  //     title: "Punch Rose WARAKH & MAWA",
-  //     desc: "DRYFRUIT PUNCH ROSE Description and many more thing",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint78_1880x.jpg?v=1690267171",
-  //     alt: "image not showing",
-  //     price: "480",
-  //   },
-  //   {
-  //     id: 10,
-  //     title: "ADADIYA PAK",
-  //     desc: "addidya pak is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 11,
-  //     title: "BUY ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "COW GHEE Desciption is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint74_1880x.jpg?v=1690184306",
-  //     alt: "image not showing",
-  //     price: "1800",
-  //   },
-  //   {
-  //     id: 12,
-  //     title: "Ghee ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "DRYFRUIT PUNCH ROSE is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/dry-fruits-nutritional-punch_870x.jpg?v=1683108223",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 13,
-  //     title: "KAJU KATLI WITHOUT WARAKH & MAWA",
-  //     desc: "Dryfruit Punch Rose is a classic premium sweet from Gujarat,",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "500",
-  //   },
-  //   {
-  //     id: 14,
-  //     title: "MOHAN THAL",
-  //     desc: "Mohan thal is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
-  //     alt: "image not showing",
-  //     price: "113",
-  //   },
-  //   {
-  //     id: 15,
-  //     title: "Punch Rose WARAKH & MAWA",
-  //     desc: "DRYFRUIT PUNCH ROSE Description and many more thing",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint78_1880x.jpg?v=1690267171",
-  //     alt: "image not showing",
-  //     price: "480",
-  //   },
-  //   {
-  //     id: 16,
-  //     title: "ADADIYA PAK",
-  //     desc: "addidya pak is a traditional ancient sweet from Gujarat Kathiyawad",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 17,
-  //     title: "BUY ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "COW GHEE Desciption is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint74_1880x.jpg?v=1690184306",
-  //     alt: "image not showing",
-  //     price: "1800",
-  //   },
-  //   {
-  //     id: 18,
-  //     title: "Ghee ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "DRYFRUIT PUNCH ROSE is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/dry-fruits-nutritional-punch_870x.jpg?v=1683108223",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  //   {
-  //     id: 19,
-  //     title: "BUY ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "COW GHEE Desciption is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/fpoint74_1880x.jpg?v=1690184306",
-  //     alt: "image not showing",
-  //     price: "1800",
-  //   },
-  //   {
-  //     id: 20,
-  //     title: "Ghee ORGANIC A2 GIR DESI COW GHEE",
-  //     desc: "DRYFRUIT PUNCH ROSE is a traditional ancient",
-  //     src: "https://haribadairyfarm.com/cdn/shop/files/dry-fruits-nutritional-punch_870x.jpg?v=1683108223",
-  //     alt: "image not showing",
-  //     price: "700",
-  //   },
-  // ];
+  useEffect(() => {
+    let isMounted = true;
 
-  // getProducts();
+    async function getProducts() {
+      try {
+        let response = await fetch("http://localhost:3000/data");
+        let data = await response.json();
+        if (isMounted) {
+          setProducts(data.products);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
 
-  // async function getProducts() {
+    getProducts();
 
-  // const response = await fetch("https://dummyjson.com/products");
-  // const data = await response.json();
-  // setProducts(data.products);
-  // }
-
-  // useEffect(() => {
-  //   let isMounted = true;
-
-  //   async function getProducts() {
-  //     try {
-  //       let response = await fetch("http://localhost:3000/data");
-  //       let data = await response.json();
-  //       if (isMounted) {
-  //         setProducts(data.products);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-
-  //   getProducts();
-
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // }, []);
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const notifyAddedToCart = (item) =>
     toast.success(`${item.title} added to cart!`, {

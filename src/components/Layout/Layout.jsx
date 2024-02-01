@@ -12,7 +12,7 @@ function Layout() {
       <Home images={images} />
       <Card />
       {/* <Products /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
