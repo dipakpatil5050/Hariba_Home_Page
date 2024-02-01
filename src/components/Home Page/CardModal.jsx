@@ -5,8 +5,8 @@ import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
 import "./Card.css";
 import { toast } from "react-toastify";
-
-function CardModal({ onClose }) {
+import { Star, ChevronDown } from "lucide-react";
+function CardModal({ product, onClose }) {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -14,17 +14,17 @@ function CardModal({ onClose }) {
       onClose();
     }
   };
-  const [price, setPrice] = useState(500);
+  // const [totalprice, setTotalPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
 
   const add = () => {
-    setPrice(price + 500);
+    // setPrice(totalprice + 500);
     setQuantity(quantity + 1);
   };
 
   const remove = () => {
-    if (quantity > 1 && price > 500) {
-      setPrice(price - 500);
+    if (quantity > 1) {
+      // setPrice(totalprice - 500);
       setQuantity(quantity - 1);
     } else {
       toast.warning("select minimum one item");
@@ -45,39 +45,33 @@ function CardModal({ onClose }) {
           >
             <X color="black" />
           </button>
-          <div className="flex max-w-5xl flex-col items-center rounded-xl text-5xl bg-white md:flex-row min-[360px]:m-2">
+          <div className="flex max-w-6xl flex-col items-center  rounded-xl text-5xl bg-white md:flex-row min-[360px]:m-2">
             {/* image section */}
-            <div className="h-full w-full md:h-[500px] md:w-[1410px] rounded-r-5xl">
+            <div className="h-full md:h-[500px] md:w-[1229px]  rounded-r-5xl">
               <img
-                src="https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317"
-                alt="Laptop"
-                className="h-full rounded-md object-cover"
+                src={product.src}
+                alt="image Loading..."
+                className="h-full p-1 rounded-3xl object-cover"
               />
             </div>
 
-            <div className="p-4 mt-[64px] min-[390px]:mt-1 items-s md:relative md:bottom-13">
-              <h1 className="inline-flex title items-center text-2xl font-bold text-black">
-                KAJU KATLI WITHOUT WARAKH & MAWA
+            <div className="p-4  min-[390px]:mr-1 items-s md:relative md:bottom-13 mr-20 ">
+              <h1 className="inline-flex title items-center text-3xl font-bold text-black">
+                {product.title}
               </h1>
 
-              <p className="mt-3 text-sm text-gray-600  pr-5">
-                A Traditional Indian sweet with low sugar and made with only
-                Cashew, Sugar and Pistachio(Garnishing) without Warakh (Silver
-                foil) and Mawa (Khoya). A perfect Sweet to share with friends
-                and family during special occasions, fasting, & simply relish as
-                a dessert. Enjoy this classic premium...
-              </p>
+              <p className="mt-3 text-sm text-gray-600  pr-5">{product.desc}</p>
 
-              <div className="mt-3 flex items-center space-x-2 priceTag">
+              <div className="mt-16 flex items-center space-x-2 priceTag">
                 <IoPricetagOutline className="text-xl" color="black" />
                 <span className="flex">
                   <strong className="text-xl text-gray-900 items-baseline font-mono">
-                    <p>₹500 / kg</p>
+                    <p>₹ {product.price} / kg</p>
                   </strong>
                 </span>
               </div>
-              <div className="p-5 pb-3 flex flex-row gap-3 items-center quantity">
-                <h4 className="text-black text-sm"> Quantity : </h4>
+              <div className="p- pb-3 flex mt-16 flex-row gap-3 items-center  quantity">
+                <h4 className="text-black text-lg"> Quantity : </h4>
 
                 <button
                   onClick={() => add()}
@@ -93,13 +87,13 @@ function CardModal({ onClose }) {
                   <FiMinus size={20} />
                 </button>
               </div>
-              <div className="mt-3 flex items-center space-x-2 Subtotal">
+              {/* <div className="mt-3 flex items-center space-x-2 Subtotal">
                 <span className="flex">
                   <p className="text-xl text-thin text-gray-900 items-baseline">
-                    {`Subtotal: : ₹ ${price}`}
+                    {`Subtotal: : ₹ ${totalprice}`}
                   </p>
                 </span>
-              </div>
+              </div> */}
               <div className="addToCartBtn">
                 <a href="#">
                   <button className="bn-32 bn32 bg-[#251805] hover:bg-white  text-white mt-10">
@@ -108,7 +102,8 @@ function CardModal({ onClose }) {
                 </a>
               </div>
 
-              <div className="flex gap-6 relative mt-28 min-[390px]:mt-12 xl:flex-row ">
+              {/* option images */}
+              {/* <div className="flex gap-6 relative mt-28 min-[390px]:mt-12 xl:flex-row ">
                 {[
                   "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
                   "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
@@ -127,7 +122,7 @@ function CardModal({ onClose }) {
                     />
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
       <div className="topBtn">
-        <div className="w-full flex justify-center items-start pt-7 pb-0">
+        <div className="w-full flex justify-end items-start pt-7 pr-10">
           <Link
             to="/home"
             className="flex items-center
@@ -17,8 +17,8 @@ function Footer() {
           >
             <img
               src="https://cdn2.iconfinder.com/data/icons/gradient-purple-navigation-and-transactional-for-w/40/up-purp-512.png"
-              alt="Top"
-              className="w-14 h-16 object-contain opacity-30"
+              alt="Top icon"
+              className="w-14 h-16 object-contain flex justify-end items-center opacity-30"
             />
           </Link>
         </div>
@@ -29,7 +29,7 @@ function Footer() {
           <div className="-m-8 flex flex-wrap items-center justify-between">
             <div className="w-auto p-8">
               <a href="#">
-                <div className="inline-flex items-center w-36">
+                <div className="inline-flex items-center  w-36">
                   <img
                     src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
                     alt=""

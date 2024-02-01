@@ -10,8 +10,7 @@ const products = [
     href: "#",
     price: "₹ 500",
     quantity: 1,
-    imageSrc:
-      "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
+    src: "https://haribadairyfarm.com/cdn/shop/files/fpoint721_510x.jpg?v=1690262482",
   },
   {
     id: 2,
@@ -19,8 +18,7 @@ const products = [
     href: "#",
     price: "₹ 800",
     quantity: 5,
-    imageSrc:
-      "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
+    src: "https://haribadairyfarm.com/cdn/shop/products/1_1066x.jpg?v=1690262514",
   },
   {
     id: 3,
@@ -28,8 +26,7 @@ const products = [
     href: "#",
     price: "₹ 750",
     quantity: 8,
-    imageSrc:
-      "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
+    src: "https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317https://haribadairyfarm.com/cdn/shop/files/fpoint711_1880x.jpg?v=1690267317",
   },
 ];
 
@@ -42,7 +39,6 @@ export default function HoverCart() {
   //   }
   // };
   const [totalAmount, setTotalAmount] = useState(2050);
-
   return (
     <div
       className=" fixed inset-0 flex h-[10vh] w-[vw]  items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
@@ -55,7 +51,7 @@ export default function HoverCart() {
           {products.map((product) => (
             <li key={product.id} className="flex items-center gap-4">
               <img
-                src={product.imageSrc}
+                src={product.src}
                 alt={product.name}
                 className="h-16 w-16 rounded object-contain"
               />

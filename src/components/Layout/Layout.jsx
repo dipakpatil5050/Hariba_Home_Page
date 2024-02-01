@@ -4,7 +4,7 @@ import Home from "../Home Page/Home";
 import images from "../Home Page/images";
 import Footer from "../Footer/Footer";
 import Card from "../Home Page/Card";
-// import Products from "../Home Page/Products";
+import Products from "../Home Page/Products";
 function Layout() {
   return (
     <>

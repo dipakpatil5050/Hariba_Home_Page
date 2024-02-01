@@ -14,9 +14,11 @@ export default function Products() {
   useEffect(() => {
     let isMounted = true;
 
+    const API_URL = "http://localhost:3000/data";
+
     async function getProducts() {
       try {
-        let response = await fetch("http://localhost:3000/data");
+        let response = await fetch(API_URL);
         let data = await response.json();
         if (isMounted) {
           setProducts(data.products);

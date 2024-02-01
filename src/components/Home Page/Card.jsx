@@ -10,44 +10,23 @@ function Card() {
   const [visible, setVisible] = useState(6);
   const [selectedProduct, setSelectedProduct] = useState([null]);
   const [data, setData] = useState([]);
-  const [postId, setPostId] = useState("");
-  const [data2, setData2] = useState([]);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
   };
 
-  const handleAddToCart = (productId) => {
+  const handleViewDetail = (productId) => {
     const product = data.find((item) => item.id === productId);
     setSelectedProduct(product);
     setShowModal(true);
-    console.log(product);
+    // console.log(product);
   };
-
-  // function handleInput(e) {
-  //   console.log(e.target.value);
-  //   setSelectedProduct(e.target.title);
-  // }
-
-  // const fetchPostData = async () => {
-  //   const response = await fetch(`http://localhost:3000/data`, {
-  //     method: "POST",
-
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ id: 1 }),
-  //   });
-  //   const jsonData = await response.json();
-  //   setData2(jsonData);
-  // };
-  // fetchPostData();
-  // console.log(jsonData);
+  const API_URL = "http://localhost:3000/data";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/data");
+        const response = await fetch(API_URL);
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
@@ -65,7 +44,7 @@ function Card() {
             <div className="group relative" key={product.id}>
               <div
                 className="card-container rounded-md h-[390px] m-7 p-2 flex flex-wrap cursor-pointer"
-                onClick={() => setShowModal(true)}
+                // onClick={() => setShowModal(true)}
               >
                 <img
                   className=" card-img rounded-t-2xl rounded-b-xl ease-out duration-500 scale-100 hover:scale-110"
@@ -97,9 +76,9 @@ function Card() {
                       // value={product.id}
                       // key={product.id}
                       // onClick={(e) => handleInput(e, "value")}
-                      onClick={() => handleAddToCart(product.id)}
+                      onClick={() => handleViewDetail(product.id)}
                     >
-                      add to cart
+                      View Details
                     </button>
 
                     {/* <button
@@ -114,12 +93,12 @@ function Card() {
             </div>
           );
         })}
-        {/* {showModal && (
+        {showModal && (
           <CardModal
             product={selectedProduct}
             onClose={() => setShowModal(false)}
           />
-        )} */}
+        )}
       </div>
       <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
         <button
