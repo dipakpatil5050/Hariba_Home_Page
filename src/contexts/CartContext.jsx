@@ -10,8 +10,6 @@ export const CartProvider = ({ children }) => {
       : []
   );
 
-  // add to cart redux
-
   const addToCart = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
@@ -27,8 +25,6 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
   };
-
-  // remove from cart redux
 
   const removeFromCart = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -46,19 +42,16 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // clear the cart redux
   const clearCart = () => {
     setCartItems([]);
   };
 
-  // get total value redux
   const getCartTotal = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
   };
-
 
   useEffect(() => {
     const data = localStorage.getItem("cartItems");

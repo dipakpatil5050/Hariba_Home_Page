@@ -10,9 +10,9 @@ function Layout() {
     <>
       <Navbar />
       <Home images={images} />
-      <Card />
+      {/* <Card /> */}
       {/* <Products /> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

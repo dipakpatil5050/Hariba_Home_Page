@@ -9,13 +9,10 @@ function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
-
+  const [productCount, setProductCount] = useState(0);
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  const [productCount, setProductCount] = useState(0);
-
   return (
     <>
       <header

@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
-// import { CartContext } from "../../context/cartcontext.jsx";
+// import { CartContext } from "../context/cart.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../contexts/CartContext.jsx";
 
-export default function Cart({ showModal, toggle }) {
+export default function Cart({ showCartModal, toggle }) {
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
 
@@ -17,7 +17,11 @@ export default function Cart({ showModal, toggle }) {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: light,
+      theme: "colored",
+      style: {
+        backgroundColor: "#000",
+        color: "#fff",
+      },
     });
 
   const notifyCartCleared = () =>
@@ -28,7 +32,11 @@ export default function Cart({ showModal, toggle }) {
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
-      theme: light,
+      theme: "colored",
+      style: {
+        backgroundColor: "#000",
+        color: "#fff",
+      },
     });
 
   const handleRemoveFromCart = (product) => {
@@ -37,10 +45,10 @@ export default function Cart({ showModal, toggle }) {
   };
 
   return (
-    showModal && (
-      <div className="flex-col flex items-center fixed  inset-0 top-80  w-[350px] rounded-xl right-1/4 bg-white dark:bg-white gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm">
+    showCartModal && (
+      <div className="flex-col mt-16 flex items-center fixed inset-0 left-1/4 bg-white dark:bg-white gap-8  p-10  text-white dark:text-white font-normal uppercase text-sm">
         <ToastContainer />
-        <h1 className="text-2xl font-bold">Cart</h1>
+        <h1 className="text-2xl text-black font-bold">Cart</h1>
         <div className="absolute right-16 top-10">
           <button
             className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
@@ -59,8 +67,8 @@ export default function Cart({ showModal, toggle }) {
                   className="rounded-md w-24 h-24"
                 />
                 <div className="flex gap-8 justify-center">
-                  <h1 className="text-lg font-bold">{item.title}</h1>
-                  <p className="text-gray-600">${item.price}</p>
+                  <h1 className="text-lg font-bold text-black">{item.title}</h1>
+                  <p className="text-black">₹ {item.price}</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -72,7 +80,7 @@ export default function Cart({ showModal, toggle }) {
                 >
                   +
                 </button>
-                <p>{item.quantity}</p>
+                <p className="text-black">{item.quantity}</p>
                 <button
                   className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                   onClick={() => {
@@ -94,7 +102,7 @@ export default function Cart({ showModal, toggle }) {
         </div>
         {cartItems.length > 0 ? (
           <div className="flex flex-col justify-between items-center">
-            <h1 className="text-lg font-bold">Total: ${getCartTotal()}</h1>
+            <h1 className="text-sm ">Subtotal : ₹ {getCartTotal()}</h1>
             <button
               className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
               onClick={() => {
@@ -106,7 +114,7 @@ export default function Cart({ showModal, toggle }) {
             </button>
           </div>
         ) : (
-          <h1 className="text-lg font-bold">Your cart is empty</h1>
+          <h1 className="text-lg font-bold text-black">Your cart is empty</h1>
         )}
       </div>
     )
@@ -114,6 +122,6 @@ export default function Cart({ showModal, toggle }) {
 }
 
 Cart.propTypes = {
-  showModal: PropTypes.bool,
+  showCartModal: PropTypes.bool,
   toggle: PropTypes.func,
 };

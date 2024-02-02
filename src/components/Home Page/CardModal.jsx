@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import { Star, ChevronDown } from "lucide-react";
 function CardModal({ product, onClose }) {
   const modalRef = useRef();
-
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
       onClose();
@@ -71,7 +70,7 @@ function CardModal({ product, onClose }) {
                 </span>
               </div>
               <div className="p- pb-3 flex mt-16 flex-row gap-3 items-center  quantity">
-                <h4 className="text-black text-lg"> Quantity : </h4>
+                <h4 className="text-black text-lg"> Quantity </h4>
 
                 <button
                   onClick={() => add()}
