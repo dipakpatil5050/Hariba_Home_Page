@@ -98,6 +98,7 @@ function Navbar() {
           </a>
           <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
             <HoverCart />
+            //working here
           </div>
         </div>
       </header>
