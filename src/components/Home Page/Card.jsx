@@ -27,9 +27,9 @@ function Card() {
     // console.log(product);
   };
 
-  const toggle = () => {
-    setShowCartModal(!showCartModal);
-  };
+  // const toggle = () => {
+  //   setShowCartModal(!showCartModal);
+  // };
 
   const API_URL = "http://localhost:3000/data";
 
@@ -49,18 +49,18 @@ function Card() {
   return (
     <>
       <ToastContainer />
-      <div className="flex  justify-between items-center px-20 ">
-        <h1 className="text-2xl uppercase font-bold mt-10 text-center mb-10">
+      <div className=" items-center px-20 ">
+        <h1 className="text-3xl border tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
           Products
         </h1>
-        {!showCartModal && (
+        {/* {
           <button
             className="px-4 py-2 bg-gray-800 text-white text-sm font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-            onClick={toggle}
+            // onClick={toggle}
           >
             Shopping Cart ({cartItems.length})
           </button>
-        )}
+        } */}
       </div>
       <div className="rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
         {data?.slice(0, visible).map((product) => {
@@ -123,7 +123,7 @@ function Card() {
             onClose={() => setShowModal(false)}
           />
         )}
-        <Cart showCartModal={showCartModal} toggle={toggle} />
+        {/* <Cart showCartModal={showCartModal} toggle={toggle} /> */}
       </div>
       <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
         <button

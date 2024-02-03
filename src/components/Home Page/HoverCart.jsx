@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import Cart from "./Cart";
 
-export default function HoverCart() {
+export default function HoverCart({ showCartModal }) {
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
 
@@ -29,7 +29,9 @@ export default function HoverCart() {
               />
               <div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  {product.title}
+                  {product.title.length
+                    ? product.title.substring(0, 17)
+                    : product.title}
                 </h3>
                 <div className="mt-0.5 space-y-px text-[10px] text-gray-600">
                   <div>
@@ -62,32 +64,39 @@ export default function HoverCart() {
         {cartItems.length > 0 ? (
           <div className="flex flex-col justify-between items-center">
             <h1 className="text-lg ">Subtotal : ₹ {getCartTotal()}</h1>
-            <button
-              className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+            {/* <button
+              className="px-4 py-2 text-black text-xs font-bold uppercase rounded  focus:outline-none"
               onClick={() => {
                 clearCart();
                 notifyCartCleared();
               }}
             >
               Clear cart
-            </button>
+            </button> */}
           </div>
         ) : (
           <h1 className="text-lg font-bold text-black">Your cart is empty</h1>
         )}
 
         <div className="space-y-4 text-center">
-          <button
-            type="button"
-            className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            View Cart ({cartItems.length})
-          </button>
+          <Link to="/cart">
+            <button
+              type="button"
+              className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              View Cart ({cartItems.length})
+            </button>
+          </Link>
           <button
             type="button"
             className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            onClick={() => {
+              clearCart();
+              notifyCartCleared();
+            }}
           >
-            Checkout
+            {/* Checkout */}
+            Clear Cart
           </button>
           <Link to="/home">
             <p className="inline-block text-sm text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4">

@@ -25,6 +25,7 @@ function Navbar() {
         className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
       >
         <div className="logo flex items-center justify-between ">
+
           <a href="#">
             <img
               className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50 "

@@ -5,8 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import Navbar from "../Navbar/Navbar.jsx";
+import { Link } from "react-router-dom";
 
-export default function Cart({ showCartModal }) {
+export default function Cart() {
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
 
@@ -46,18 +47,19 @@ export default function Cart({ showCartModal }) {
   };
 
   return (
-    showCartModal && (
+    <>
+      <Navbar />
       <div className="flex-col mt-16 flex items-center fixed inset-0 bg-white dark:bg-white gap-8  p-10  text-white dark:text-white font-normal uppercase text-sm">
         <ToastContainer />
         <h1 className="text-2xl text-black font-bold">Shopping Cart</h1>
-        <div className="absolute right-16 top-10">
+        {/* <div className="absolute right-16 top-10">
           <button
             className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
             // onClick={toggle}
           >
             Close
           </button>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-4">
           {cartItems.map((item) => (
             <div className="flex justify-between items-center" key={item.id}>
@@ -115,14 +117,22 @@ export default function Cart({ showCartModal }) {
             </button>
           </div>
         ) : (
-          <h1 className="text-lg font-bold text-black">Your cart is empty</h1>
+          <h1 className="text-lg font-bold text-black">
+            <img src="https://i.imgur.com/3hKhTIC.png" alt="" />
+            <Link to="/home">
+              <p className="flex items-center justify-center text-lg  text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4">
+                Continue shopping &rarr;
+              </p>
+            </Link>
+            {/* Your cart is empty */}
+          </h1>
         )}
       </div>
-    )
+    </>
   );
 }
 
 Cart.propTypes = {
   showCartModal: PropTypes.bool,
-  toggle: PropTypes.func,
+  // toggle: PropTypes.func,
 };
