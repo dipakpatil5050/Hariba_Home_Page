@@ -5,9 +5,9 @@ import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
 import "./Card.css";
 import { toast } from "react-toastify";
-import { Star, ChevronDown } from "lucide-react";
+// import { Star, ChevronDown } from "lucide-react";
 import { CartContext } from "../../contexts/CartContext.jsx";
-import Cart from "./Cart.jsx";
+// import Cart from "./Cart.jsx";
 
 function CardModal({ product, onClose }) {
   const modalRef = useRef();
@@ -80,7 +80,7 @@ function CardModal({ product, onClose }) {
   // };
 
   return (
-    <div  
+    <div
       ref={modalRef}
       onClick={closeModal}
       className="fixed  inset-0 bg-opacity-30 mt-28 backdrop-blur-sm flex items-center justify-center text-black shadow-xl "

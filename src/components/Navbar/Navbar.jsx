@@ -24,7 +24,7 @@ function Navbar() {
         // onClick={setShowModal1(true)}
         className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
       >
-        <div className="logo flex items-center ">
+        <div className="logo flex items-center justify-center ">
           <a href="#">
             <img
               className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50 "
@@ -32,7 +32,6 @@ function Navbar() {
               alt="Company Logo"
             />
           </a>
-
           <nav className="font-extralight mobileview  opacity-1 main flex items-center justify-end mt-1 flex-wrap ml-3 mr-10 p-0 text-gray-900">
             <button
               className="lg:hidden focus:outline-none bar "

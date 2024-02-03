@@ -35,7 +35,7 @@ export default function HoverCart() {
                   <div>
                     <dd className="flex font-light text-[11px] ">
                       {product.quantity} x {product.price}
-                      {/* <div className="ml-6 flex text-sm removeBtn">
+                      <div className="ml-6 flex text-sm removeBtn">
                         <button
                           type="button"
                           className="flex items-center space-x-1 px-2 py-1 pl-0"
@@ -44,10 +44,10 @@ export default function HoverCart() {
                             size={12}
                             color="red"
                             className="text-red-500 hover:font-extrabold"
-                            onClick={removeFromCart}
+                            onClick={() => removeFromCart(product)}
                           />
                         </button>
-                      </div> */}
+                      </div>
                     </dd>
                   </div>
                 </div>
