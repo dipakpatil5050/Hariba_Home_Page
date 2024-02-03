@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { IoLogoInstagram } from "react-icons/io";
+import { GoMoveToTop } from "react-icons/go";
 
 function Footer() {
   return (
@@ -15,11 +16,9 @@ function Footer() {
               window.scrollTo(0, 0);
             }}
           >
-            <img
-              src="https://cdn2.iconfinder.com/data/icons/gradient-purple-navigation-and-transactional-for-w/40/up-purp-512.png"
-              alt="Top icon"
-              className="w-14 h-16 object-contain flex justify-end items-center opacity-30"
-            />
+            <p className="object-contain w-52 flex justify-end items-center">
+              <GoMoveToTop size={23} aria-label="Top" />
+            </p>
           </Link>
         </div>
       </div>

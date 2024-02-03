@@ -34,8 +34,8 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products />} />
       <Route path="/clients" element={<Clients />} />
       <Route path="/error" element={<NoPage />} />
-      <Route path="/cart" element={<ShoppingCart />} />
-      {/* <Route path="/cart" element={<Cart />} /> */}
+      {/* <Route path="/cart" element={<ShoppingCart />} /> */}
+      <Route path="/cart" element={<Cart />} />
       {/* </ErrorBoundary> */}
     </Route>
   )

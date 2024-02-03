@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import Navbar from "../Navbar/Navbar.jsx";
 
-export default function Cart({ showCartModal, toggle }) {
+export default function Cart({ showCartModal }) {
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
 
@@ -49,11 +49,11 @@ export default function Cart({ showCartModal, toggle }) {
     showCartModal && (
       <div className="flex-col mt-16 flex items-center fixed inset-0 bg-white dark:bg-white gap-8  p-10  text-white dark:text-white font-normal uppercase text-sm">
         <ToastContainer />
-        <h1 className="text-2xl text-black font-bold">Cart</h1>
+        <h1 className="text-2xl text-black font-bold">Shopping Cart</h1>
         <div className="absolute right-16 top-10">
           <button
             className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-            onClick={toggle}
+            // onClick={toggle}
           >
             Close
           </button>
@@ -103,7 +103,7 @@ export default function Cart({ showCartModal, toggle }) {
         </div>
         {cartItems.length > 0 ? (
           <div className="flex flex-col justify-between items-center">
-            <h1 className="text-sm ">Subtotal : ₹ {getCartTotal()}</h1>
+            <h1 className="text-lg ">Subtotal : ₹ {getCartTotal()}</h1>
             <button
               className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
               onClick={() => {

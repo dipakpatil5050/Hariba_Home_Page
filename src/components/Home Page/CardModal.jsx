@@ -168,7 +168,7 @@ function CardModal({ product, onClose }) {
                   </button>
                 ) : (
                   <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6">
-                    Added
+                    see in cart
                   </button>
                 )}
               </div>

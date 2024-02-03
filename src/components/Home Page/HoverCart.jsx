@@ -56,8 +56,25 @@ export default function HoverCart() {
           ))}
         </ul>
         {/* <div className="total-amount">
-          <p>Total Amount : ₹ {getCartTotal}</p>
+          <p>Total Amount : ₹ {() => getCartTotal()}</p>
         </div> */}
+
+        {cartItems.length > 0 ? (
+          <div className="flex flex-col justify-between items-center">
+            <h1 className="text-lg ">Subtotal : ₹ {getCartTotal()}</h1>
+            <button
+              className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+              onClick={() => {
+                clearCart();
+                notifyCartCleared();
+              }}
+            >
+              Clear cart
+            </button>
+          </div>
+        ) : (
+          <h1 className="text-lg font-bold text-black">Your cart is empty</h1>
+        )}
 
         <div className="space-y-4 text-center">
           <button
