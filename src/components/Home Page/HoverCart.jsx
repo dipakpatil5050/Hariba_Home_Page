@@ -111,5 +111,5 @@ export default function HoverCart({ showCartModal }) {
 
 HoverCart.propTypes = {
   showCartModal: PropTypes.bool,
-  toggle: PropTypes.func,
+  // toggle: PropTypes.func,
 };

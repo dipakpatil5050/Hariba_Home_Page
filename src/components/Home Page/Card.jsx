@@ -5,16 +5,16 @@ import "./Card.css";
 import { RefreshCcw } from "lucide-react";
 // import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import Cart from "./Cart.jsx";
-import { CartContext } from "../../contexts/CartContext.jsx";
+// import Cart from "./Cart.jsx";
+// import { CartContext } from "../../contexts/CartContext.jsx";
 
 function Card() {
   const [showModal, setShowModal] = useState(false);
   const [visible, setVisible] = useState(6);
   const [selectedProduct, setSelectedProduct] = useState([null]);
   const [data, setData] = useState([]);
-  const [showCartModal, setShowCartModal] = useState(false);
-  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  // const [showCartModal, setShowCartModal] = useState(false);
+  // const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
@@ -50,7 +50,7 @@ function Card() {
     <>
       <ToastContainer />
       <div className=" items-center px-20 ">
-        <h1 className="text-3xl border tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
+        <h1 className="text-3xl tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
           Products
         </h1>
         {/* {
