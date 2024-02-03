@@ -26,20 +26,20 @@ export default function Cart() {
       },
     });
 
-  const notifyCartCleared = () =>
-    toast.error(`Cart cleared!`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-      style: {
-        backgroundColor: "#000",
-        color: "#fff",
-      },
-    });
+  // const notifyCartCleared = () =>
+  //   toast.error(`Cart cleared!`, {
+  //     position: "top-center",
+  //     autoClose: 2000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     theme: "colored",
+  //     style: {
+  //       backgroundColor: "#000",
+  //       color: "#fff",
+  //     },
+  //   });
 
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
@@ -69,12 +69,15 @@ export default function Cart() {
                   alt={item.title}
                   className="rounded-md w-24 h-24"
                 />
-                <div className="flex gap-8 justify-center">
+                <hr />
+                <br />
+                <div className="flex flex-col gap-5 justify-center">
                   <h1 className="text-lg font-bold text-black">{item.title}</h1>
                   <p className="text-black">₹ {item.price}</p>
                 </div>
               </div>
-              <div className="flex gap-4">
+
+              <div className="flex gap-5 ml-10">
                 <button
                   className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
                   onClick={() => {
@@ -105,12 +108,14 @@ export default function Cart() {
         </div>
         {cartItems.length > 0 ? (
           <div className="flex flex-col justify-between items-center">
-            <h1 className="text-lg ">Subtotal : ₹ {getCartTotal()}</h1>
+            <h1 className="text-2xl mb-10 ">
+              Subtotal : <b>₹ {getCartTotal()}</b>
+            </h1>
             <button
               className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
               onClick={() => {
                 clearCart();
-                notifyCartCleared();
+                // notifyCartCleared();
               }}
             >
               Clear cart
