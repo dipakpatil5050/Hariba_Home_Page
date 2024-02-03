@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { BsCart3 } from "react-icons/bs";
 import ShoppingCart from "../Shopping Cart/ShoppingCart";
-import HoverCart from "../Shopping Cart/HoverCart";
+import HoverCart from "../Home Page/HoverCart";
+import { CartContext } from "../../contexts/CartContext";
+import Cart from "../Home Page/Cart";
 
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
+
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
   const [productCount, setProductCount] = useState(0);
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
   return (
     <>
       <header
         // onClick={setShowModal1(true)}
         className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
       >
-        <div className="logo flex items-center justify-between ">
+        <div className="logo flex items-center ">
           <a href="#">
             <img
               className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50 "
@@ -94,11 +99,14 @@ function Navbar() {
             className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
           >
             <BsCart3 size={25} />
-            <span className="absolute top-5 right-12 pr-3">{productCount}</span>
+
+            <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
+              {cartItems.length}
+            </span>
           </a>
           <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
             <HoverCart />
-            //working here
+            {/* <Cart /> */}
           </div>
         </div>
       </header>

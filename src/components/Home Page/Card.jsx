@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IoPricetagOutline } from "react-icons/io5";
 import CardModal from "./CardModal";
 import "./Card.css";
 import { RefreshCcw } from "lucide-react";
 // import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import Cart from "./Cart.jsx";
+import { CartContext } from "../../contexts/CartContext.jsx";
 
 function Card() {
   const [showModal, setShowModal] = useState(false);
   const [visible, setVisible] = useState(6);
   const [selectedProduct, setSelectedProduct] = useState([null]);
   const [data, setData] = useState([]);
+  const [showCartModal, setShowCartModal] = useState(false);
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
@@ -21,6 +26,11 @@ function Card() {
     setShowModal(true);
     // console.log(product);
   };
+
+  const toggle = () => {
+    setShowCartModal(!showCartModal);
+  };
+
   const API_URL = "http://localhost:3000/data";
 
   useEffect(() => {
@@ -38,6 +48,20 @@ function Card() {
 
   return (
     <>
+      <ToastContainer />
+      <div className="flex mt-16 justify-between items-center px-20 py-5">
+        <h1 className="text-2xl uppercase font-bold mt-10 text-center mb-10">
+          Products
+        </h1>
+        {!showCartModal && (
+          <button
+            className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
+            onClick={toggle}
+          >
+            cart ({cartItems.length})
+          </button>
+        )}
+      </div>
       <div className="rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
         {data?.slice(0, visible).map((product) => {
           return (
@@ -99,6 +123,7 @@ function Card() {
             onClose={() => setShowModal(false)}
           />
         )}
+        <Cart showCartModal={showCartModal} toggle={toggle} />
       </div>
       <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
         <button

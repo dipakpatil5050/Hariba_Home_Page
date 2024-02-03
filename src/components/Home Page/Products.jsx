@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import Cart from "./cart.jsx";
+// import Cart from "./cart.jsx";
 import { IoPricetagOutline } from "react-icons/io5";
 import "./Card.css";
 
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import CardModal from "./CardModal.jsx";
 import { BsCart3 } from "react-icons/bs";
+import Cart from "./Cart.jsx";
 
 export default function Products() {
   const [showModal, setShowModal] = useState(false);
@@ -88,7 +89,7 @@ export default function Products() {
       <ToastContainer />
       <div className="flex mt-16 justify-between items-center px-20 py-5">
         <h1 className="text-2xl uppercase font-bold mt-10 text-center mb-10">
-          Products
+          <a href="/home">Products</a>
         </h1>
         {!showCartModal && (
           <button
@@ -132,9 +133,6 @@ export default function Products() {
                     {!cartItems.find((item) => item.id === product.id) ? (
                       <button
                         className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6"
-                        // value={product.id}
-                        // key={product.id}
-                        // onClick={(e) => handleInput(e, "value")}
                         // onClick={() => handleViewDetail(product.id)}
                         onClick={() => {
                           addToCart(product);

@@ -14,9 +14,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
-    if (username === "admin" && password === "admin")
-    
-     {
+    if (username === "admin" && password === "admin") {
       setIsAuthenticate(true);
       toast.success("Login successful!");
     } else {
@@ -33,7 +31,7 @@ const Login = () => {
       {isAuthenticate ? (
         <Layout />
       ) : (
-        <div className="login-right login-main">
+        <div className="login-right login-main ">
           <div className="login-right-container">
             <div className="login-logo">
               <img

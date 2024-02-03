@@ -1,8 +1,11 @@
 import { Trash } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import React, { useEffect, useState, useContext } from "react";
 import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
+import { ToastContainer, toast } from "react-toastify";
 import Navbar from "../Navbar/Navbar";
+import { CartContext } from "../../contexts/CartContext";
 const products = [
   {
     id: 1,
@@ -25,6 +28,9 @@ const products = [
 function ShoppingCart() {
   const [price, setPrice] = useState(500);
   const [quantity, setQuantity] = useState(1);
+
+  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
+    useContext(CartContext);
 
   const add = () => {
     setPrice(price + 500);
@@ -70,6 +76,7 @@ function ShoppingCart() {
                           className="sm:h-38 sm:w-38 h-24 w-24 rounded-md object-contain object-center"
                         />
                       </div>
+                      <h1 className="ml-10">{product.name}</h1>
 
                       <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">

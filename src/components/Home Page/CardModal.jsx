@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { X } from "lucide-react";
 import { IoPricetagOutline } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
@@ -6,8 +6,12 @@ import { FiMinus } from "react-icons/fi";
 import "./Card.css";
 import { toast } from "react-toastify";
 import { Star, ChevronDown } from "lucide-react";
+import { CartContext } from "../../contexts/CartContext.jsx";
+import Cart from "./Cart.jsx";
+
 function CardModal({ product, onClose }) {
   const modalRef = useRef();
+
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
       onClose();
@@ -15,6 +19,9 @@ function CardModal({ product, onClose }) {
   };
   // const [totalprice, setTotalPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+
+  const [selectedProduct, setSelectedProduct] = useState([null]);
 
   const add = () => {
     // setPrice(totalprice + 500);
@@ -30,8 +37,50 @@ function CardModal({ product, onClose }) {
     }
   };
 
+  const notifyAddedToCart = (item) =>
+    toast.success(`${item.title} added to cart!`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+      style: {
+        backgroundColor: "#fff",
+        color: "#000",
+      },
+    });
+
+  const notifyRemovedFromCart = (item) =>
+    toast.error(`${item.title} removed from cart!`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+      style: {
+        backgroundColor: "#000",
+        color: "#fff",
+      },
+    });
+
+  const handleRemoveFromCart = (product) => {
+    removeFromCart(product);
+    notifyRemovedFromCart(product);
+  };
+
+  // const handleViewDetail = (productId) => {
+  //   const product = data.find((item) => item.id === productId);
+  //   setSelectedProduct(product);
+  //   setShowModal(true);
+  //   // console.log(product);
+  // };
+
   return (
-    <div
+    <div  
       ref={modalRef}
       onClick={closeModal}
       className="fixed  inset-0 bg-opacity-30 mt-28 backdrop-blur-sm flex items-center justify-center text-black shadow-xl "
@@ -93,12 +142,35 @@ function CardModal({ product, onClose }) {
                   </p>
                 </span>
               </div> */}
-              <div className="addToCartBtn">
+
+              {/* add to cart button  */}
+              {/* <div className="addToCartBtn">
                 <a href="#">
                   <button className="bn-32 bn32 bg-[#251805] hover:bg-white  text-white mt-10">
                     Add to Cart
                   </button>
                 </a>
+              </div> */}
+
+              <div className="addToCartBtn flex items-center justify-center mt-4">
+                {!cartItems.find((item) => item.id === product.id) ? (
+                  <button
+                    className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6"
+                    // onClick={() => handleViewDetail(product.id)}
+                    onClick={() => {
+                      addToCart(product);
+                      notifyAddedToCart(product);
+                      // handleViewDetail(product.id);
+                      handleRemoveFromCart(product);
+                    }}
+                  >
+                    Add to cart
+                  </button>
+                ) : (
+                  <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6">
+                    Added
+                  </button>
+                )}
               </div>
 
               {/* option images */}
