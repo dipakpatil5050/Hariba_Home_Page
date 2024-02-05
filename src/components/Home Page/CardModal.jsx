@@ -37,39 +37,39 @@ function CardModal({ product, onClose }) {
     }
   };
 
-  const notifyAddedToCart = (item) =>
-    toast.success(`${item.title} added to cart!`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-      style: {
-        backgroundColor: "#fff",
-        color: "#000",
-      },
-    });
+  // const notifyAddedToCart = (item) =>
+  //   toast.success(`${item.title} added to cart!`, {
+  //     position: "top-center",
+  //     autoClose: 2000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     theme: "colored",
+  //     style: {
+  //       backgroundColor: "#fff",
+  //       color: "#000",
+  //     },
+  //   });
 
-  const notifyRemovedFromCart = (item) =>
-    toast.error(`${item.title} removed from cart!`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-      style: {
-        backgroundColor: "#000",
-        color: "#fff",
-      },
-    });
+  // const notifyRemovedFromCart = (item) =>
+  //   toast.error(`${item.title} removed from cart!`, {
+  //     position: "top-center",
+  //     autoClose: 2000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     theme: "colored",
+  //     style: {
+  //       backgroundColor: "#000",
+  //       color: "#fff",
+  //     },
+  //   });
 
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
-    notifyRemovedFromCart(product);
+    // notifyRemovedFromCart(product);
   };
 
   // const handleViewDetail = (productId) => {
@@ -159,17 +159,20 @@ function CardModal({ product, onClose }) {
                     // onClick={() => handleViewDetail(product.id)}
                     onClick={() => {
                       addToCart(product);
-                      notifyAddedToCart(product);
+                      // notifyAddedToCart(product);
                       // handleViewDetail(product.id);
                       handleRemoveFromCart(product);
-
+                      // onClose();
+                      // closeModal();
                     }}
-                    
                   >
                     Add to cart
                   </button>
                 ) : (
-                  <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6">
+                  <button
+                    className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6 duration-300"
+                    onClick={onClose()}
+                  >
                     Added
                   </button>
                 )}

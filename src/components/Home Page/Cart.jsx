@@ -19,20 +19,20 @@ export default function Cart() {
     getCartTotal,
   } = useContext(CartContext);
 
-  const notifyRemovedFromCart = (item) =>
-    toast.error(`${item.title} removed from cart!`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      theme: "colored",
-      style: {
-        backgroundColor: "#000",
-        color: "#fff",
-      },
-    });
+  // const notifyRemovedFromCart = (item) =>
+  //   toast.error(`${item.title} removed from cart!`, {
+  //     position: "top-center",
+  //     autoClose: 2000,
+  //     hideProgressBar: true,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     theme: "colored",
+  //     style: {
+  //       backgroundColor: "#000",
+  //       color: "#fff",
+  //     },
+  //   });
 
   // const notifyCartCleared = () =>
   //   toast.error(`Cart cleared!`, {

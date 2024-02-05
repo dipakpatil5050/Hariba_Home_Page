@@ -21,6 +21,7 @@ function Card() {
   const [data, setData] = useState([]);
   // const [showCartModal, setShowCartModal] = useState(false);
   const { cartItems } = useContext(CartContext);
+  const [loading, setLoading] = useState(false);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
@@ -42,10 +43,13 @@ function Card() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch(API_URL);
         const jsonData = await response.json();
         setData(jsonData);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.error("Error fetching data:", error);
       }
     };
@@ -55,7 +59,9 @@ function Card() {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
+
+      {loading && <div className="loader">Loading...</div>}
       <div className=" items-center px-20 ">
         <h1 className="text-3xl tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
           Products
@@ -108,12 +114,17 @@ function Card() {
                     {isInCart && (
                       <span className="left-12 absolute text-green-600">
                         {/* <FcCheckmark size={20} /> */}
+                        {/* <label
+                          className="text-sm mb-36 bg-black font-bold text-green-600"
+                          htmlFor=""
+                        >
+                          Added to cart
+                        </label> */}
                         <BsCartCheck size={20} />
 
                         {/* <IoCheckmarkDoneOutline size={20} color="green" /> */}
                       </span>
                     )}
-
                     <button
                       className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg"
                       // value={product.id}
