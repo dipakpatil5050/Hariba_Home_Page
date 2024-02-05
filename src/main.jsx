@@ -22,6 +22,7 @@ import Products from "./pages/Products.jsx";
 import ShoppingCart from "./components/Shopping Cart/ShoppingCart.jsx";
 import { CartProvider } from "./contexts/CartContext.jsx";
 import Cart from "./components/Home Page/Cart.jsx";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,23 +43,24 @@ const router = createBrowserRouter(
 );
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-      {/* <App /> */}
-    </CartProvider>
-    <ToastContainer
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="light"
-      transition:Bounce
-    />
-    ;
+    <ErrorBoundary>
+      <CartProvider>
+        <RouterProvider router={router} />
+        {/* <App /> */}
+      </CartProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition:Bounce
+      />
+    </ErrorBoundary>
   </React.StrictMode>
 );

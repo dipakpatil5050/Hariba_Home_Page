@@ -21,9 +21,9 @@ export default function Products() {
 
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
-  const toggle = () => {
-    setShowCartModal(!showCartModal);
-  };
+  // const toggle = () => {
+  //   setShowCartModal(!showCartModal);
+  // };
 
   const API_URL = "http://localhost:3000/data";
 
@@ -94,7 +94,7 @@ export default function Products() {
         {!showCartModal && (
           <button
             className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-            onClick={toggle}
+            // onClick={toggle}
           >
             cart ({cartItems.length})
           </button>
@@ -160,7 +160,7 @@ export default function Products() {
           onClose={() => setShowModal(false)}
         />
       )} */}
-      <Cart showCartModal={showCartModal} toggle={toggle} />
+      <Cart showCartModal={showCartModal} />
     </div>
   );
 }

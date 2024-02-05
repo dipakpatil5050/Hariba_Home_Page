@@ -155,20 +155,22 @@ function CardModal({ product, onClose }) {
               <div className="addToCartBtn flex items-center justify-center mt-4">
                 {!cartItems.find((item) => item.id === product.id) ? (
                   <button
-                    className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6"
+                    className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6"
                     // onClick={() => handleViewDetail(product.id)}
                     onClick={() => {
                       addToCart(product);
                       notifyAddedToCart(product);
                       // handleViewDetail(product.id);
                       handleRemoveFromCart(product);
+
                     }}
+                    
                   >
                     Add to cart
                   </button>
                 ) : (
-                  <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg mb-6">
-                    Check cart
+                  <button className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6">
+                    Added
                   </button>
                 )}
               </div>

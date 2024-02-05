@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
-import { IoPricetagOutline } from "react-icons/io5";
+import {
+  IoCheckmarkDone,
+  IoCheckmarkDoneOutline,
+  IoPricetagOutline,
+} from "react-icons/io5";
 import CardModal from "./CardModal";
 import "./Card.css";
 import { RefreshCcw } from "lucide-react";
 // import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 // import Cart from "./Cart.jsx";
-// import { CartContext } from "../../contexts/CartContext.jsx";
+import { CartContext } from "../../contexts/CartContext.jsx";
+import { FcCheckmark } from "react-icons/fc";
+import { BsCartCheck } from "react-icons/bs";
 
 function Card() {
   const [showModal, setShowModal] = useState(false);
@@ -14,7 +20,7 @@ function Card() {
   const [selectedProduct, setSelectedProduct] = useState([null]);
   const [data, setData] = useState([]);
   // const [showCartModal, setShowCartModal] = useState(false);
-  // const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 6);
@@ -45,6 +51,7 @@ function Card() {
     };
     fetchData();
   }, []);
+  const areMoreItemsAvailable = visible < data.length;
 
   return (
     <>
@@ -64,11 +71,14 @@ function Card() {
       </div>
       <div className="rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
         {data?.slice(0, visible).map((product) => {
+          const isInCart = cartItems.some((item) => item.id === product.id);
+
           return (
             <div className="group relative" key={product.id}>
               <div
                 className="card-container rounded-md h-[390px] m-7 p-2 flex flex-wrap cursor-pointer"
                 // onClick={() => setShowModal(true)}
+                onClick={() => handleViewDetail(product.id)}
               >
                 <img
                   className=" card-img rounded-t-2xl rounded-b-xl ease-out duration-500 scale-100 hover:scale-110"
@@ -95,6 +105,15 @@ function Card() {
                     <IoPricetagOutline className="mr-2" /> ₹{product.price}
                   </strong>
                   <div className="addToCartBtn flex items-center justify-center mt-4">
+                    {isInCart && (
+                      <span className="left-12 absolute text-green-600">
+                        {/* <FcCheckmark size={20} /> */}
+                        <BsCartCheck size={20} />
+
+                        {/* <IoCheckmarkDoneOutline size={20} color="green" /> */}
+                      </span>
+                    )}
+
                     <button
                       className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg"
                       // value={product.id}
@@ -104,13 +123,6 @@ function Card() {
                     >
                       View Details
                     </button>
-
-                    {/* <button
-                      value={product.id}
-                      onClick={(e) => handleInput(e, "value")}
-                    >
-                      click
-                    </button> */}
                   </div>
                 </div>
               </div>
@@ -125,20 +137,23 @@ function Card() {
         )}
         {/* <Cart showCartModal={showCartModal} toggle={toggle} /> */}
       </div>
+
       <div className="flex flex-wrap m-5 items-center justify-center pt-12	">
-        <button
-          className=" content-between flex items-center bg-transparent hover:bg-[#251805] text-[#251805] font-normal  hover:text-white py-5 px-5 border border-[#251805] hover:border-transparent rounded"
-          onClick={showMoreItems}
-        >
-          More Products
-          <span className="pl-2 ">
-            <RefreshCcw
-              size={17}
-              className="text-thin changeColor"
-              color="gray"
-            />
-          </span>
-        </button>
+        {areMoreItemsAvailable && (
+          <button
+            className=" content-between flex items-center bg-transparent hover:bg-[#251805] text-[#251805] font-normal  hover:text-white py-5 px-5 border border-[#251805] hover:border-transparent rounded"
+            onClick={showMoreItems}
+          >
+            More Products
+            <span className="pl-2 ">
+              <RefreshCcw
+                size={17}
+                className="text-thin changeColor"
+                color="gray"
+              />
+            </span>
+          </button>
+        )}
 
         {/* <button value={"1"} onClick={(e) => handleInput(e, "value")}></button> */}
       </div>

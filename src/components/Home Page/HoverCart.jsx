@@ -8,7 +8,7 @@ import { CartContext } from "../../contexts/CartContext";
 import Cart from "./Cart";
 
 export default function HoverCart({ showCartModal }) {
-  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } =
+  const { cartItems, deleteFromCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
 
   return (
@@ -46,7 +46,7 @@ export default function HoverCart({ showCartModal }) {
                             size={12}
                             color="red"
                             className="text-red-500 hover:font-extrabold"
-                            onClick={() => removeFromCart(product)}
+                            onClick={() => deleteFromCart(product)}
                           />
                         </button>
                       </div>

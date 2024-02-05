@@ -35,9 +35,11 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "^3.0.1",
     "react-slick": "^0.29.0",
-    "react-toastify": "^10.0.4",
+    "react-toastify": "4.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.8",
+    "sweetalert2": "^11.6.13",
+    "sweetalert2-react-content": "^5.0.7",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
