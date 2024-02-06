@@ -59,7 +59,7 @@ function Card() {
 
   return (
     <>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
 
       {loading && <div className="loader">Loading...</div>}
       <div className=" items-center px-20 ">
@@ -106,26 +106,37 @@ function Card() {
                   {/* {product.desc} */}
                 </p>
 
-                <div className="pricediv mt-3">
-                  <strong className="m-1 flex items-center justify-center">
+                <div className="pricediv mt-10">
+                  <strong className="m-1  flex items-center justify-center">
                     <IoPricetagOutline className="mr-2" /> ₹{product.price}
                   </strong>
                   <div className="addToCartBtn flex items-center justify-center mt-4">
                     {isInCart && (
-                      <span className="left-12 absolute text-green-600">
+                      <span
+                      // className="left-12 absolute text-green-600"
+                      >
                         {/* <FcCheckmark size={20} /> */}
                         {/* <label
                           className="text-sm mb-36 bg-black font-bold text-green-600"
                           htmlFor=""
                         >
+
+
+                        
                           Added to cart
                         </label> */}
-                        <BsCartCheck size={20} />
+                        {/* <BsCartCheck size={20} /> */}
 
                         {/* <IoCheckmarkDoneOutline size={20} color="green" /> */}
+
+                        <div className="ribbon-box absolute">
+                          <div className="ribbon ribbon-top-left">
+                            <span> {"  "} Added to cart</span>
+                          </div>
+                        </div>
                       </span>
                     )}
-                    <button
+                    {/* <button
                       className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white rounded-lg"
                       // value={product.id}
                       // key={product.id}
@@ -133,7 +144,7 @@ function Card() {
                       onClick={() => handleViewDetail(product.id)}
                     >
                       View Details
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

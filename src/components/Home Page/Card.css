@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
+
 .card-container {
   width: 25rem;
   border-radius: 1rem;
@@ -66,9 +68,69 @@
   -webkit-mask-composite: source-out;
   mask-composite: subtract;
   animation: l3 1s infinite linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @keyframes l3 {
   to {
     transform: rotate(1turn);
   }
+}
+
+/* ribbom */
+
+.ribbon-box {
+  position: relative;
+  max-width: 608px;
+  width: 42%;
+  height: 191px;
+  left: 33px;
+  top: 296px;
+}
+
+/* common */
+.ribbon {
+  width: 111px;
+  height: 124px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 20px 0;
+  background-color: #251805;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 10px/1 "Lato", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* top left*/
+.ribbon-top-left {
+  top: -12px;
+  left: -15px;
+}
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.ribbon-top-left::before {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-left::after {
+  bottom: 0;
+  left: 0;
+}
+.ribbon-top-left span {
+  right: -38px;
+  top: 61px;
+  transform: rotate(45deg);
 }

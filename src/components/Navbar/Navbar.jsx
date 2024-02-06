@@ -6,6 +6,7 @@ import ShoppingCart from "../Shopping Cart/ShoppingCart";
 import HoverCart from "../Home Page/HoverCart";
 import { CartContext } from "../../contexts/CartContext";
 import Cart from "../Home Page/Cart";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
@@ -25,14 +26,13 @@ function Navbar() {
         className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
       >
         <div className="logo flex items-center justify-between ">
-
-          <a href="#">
+          <Link to="/home">
             <img
               className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50 "
               src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
               alt="Company Logo"
             />
-          </a>
+          </Link>
 
           <nav className="font-extralight mobileview  opacity-1 main flex items-center justify-end mt-1 flex-wrap ml-3 mr-10 p-0 text-gray-900">
             <button
