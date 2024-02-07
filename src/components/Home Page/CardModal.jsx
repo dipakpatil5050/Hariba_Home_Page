@@ -118,12 +118,12 @@ function CardModal({ product, onClose }) {
             <div className="col-span-4 pt-8 lg:pt-0">
               <div className="mb-7 border-b border-gray-300 pb-7">
                 <div className="title flex">
-                  <h2 className="text-heading mb-3.5 text-lg font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
+                  <h2 className="text-heading mb-3.5 text-xl font-bold md:text-xl lg:text-2xl 2xl:text-3xl">
                     {product.title}
                   </h2>
                 </div>
 
-                <p className="text-body text-sm leading-6  lg:text-base lg:leading-8">
+                <p className="text-body leading-6  text-lg lg:leading-8">
                   {product.desc}
                 </p>
                 <div className="mt-5 flex items-center ">

@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { FaBars } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { BsCart3 } from "react-icons/bs";
-import ShoppingCart from "../Shopping Cart/ShoppingCart";
 import HoverCart from "../Home Page/HoverCart";
 import { CartContext } from "../../contexts/CartContext";
 import Cart from "../Home Page/Cart";
@@ -87,7 +86,7 @@ function Navbar() {
               </a>
               <a href="/clients">
                 <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
-                  Clients
+                  Documentation
                 </li>
               </a>
             </ul>

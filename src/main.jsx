@@ -19,7 +19,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Clients from "./pages/Clients.jsx";
 import Products from "./pages/Products.jsx";
-import ShoppingCart from "./components/Shopping Cart/ShoppingCart.jsx";
 import { CartProvider } from "./contexts/CartContext.jsx";
 import Cart from "./components/Home Page/Cart.jsx";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";

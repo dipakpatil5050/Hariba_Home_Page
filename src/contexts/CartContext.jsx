@@ -24,6 +24,12 @@ export const CartProvider = ({ children }) => {
         )
       );
     } else {
+
+
+
+
+
+      
       setCartItems([...cartItems, { ...item, quantity: quantityToAdd }]);
     }
   };
