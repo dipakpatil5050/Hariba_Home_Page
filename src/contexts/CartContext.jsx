@@ -10,19 +10,21 @@ export const CartProvider = ({ children }) => {
       : []
   );
 
-  const addToCart = (item) => {
+  // add to cart functionality
+
+  const addToCart = (item, quantityToAdd = 1) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
 
     if (isItemInCart) {
       setCartItems(
         cartItems.map((cartItem) =>
           cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? { ...cartItem, quantity: cartItem.quantity + quantityToAdd }
             : cartItem
         )
       );
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+      setCartItems([...cartItems, { ...item, quantity: quantityToAdd }]);
     }
   };
 

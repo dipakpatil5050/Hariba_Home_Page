@@ -140,7 +140,9 @@ function CardModal({ product, onClose }) {
                 <div className="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
                   <button
                     className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
-                    onClick={() => add()}
+                    onClick={() => {
+                      add();
+                    }}
                   >
                     <MdAdd size={20} />
                   </button>
@@ -162,11 +164,12 @@ function CardModal({ product, onClose }) {
                     className="bn-32 bn32 w-52 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6"
                     // onClick={() => handleViewDetail(product.id)}
                     onClick={() => {
-                      addToCart(product);
+                      addToCart(product, quantity);
+
                       notifyAddedToCart(product);
                       // handleViewDetail(product.id);
-                      handleRemoveFromCart(product);
-                      // onClose();
+                      // handleRemoveFromCart(product);
+                      onClose();
                       // closeModal();
                     }}
                   >
@@ -175,7 +178,7 @@ function CardModal({ product, onClose }) {
                 ) : (
                   <button
                     className="bn-32 bn32 w-48 text-lg flex items-center justify-center bg-[#251805] hover:bg-white  text-white  mb-6 duration-300"
-                    onClick={onClose()}
+                    // onClick={onClose()}
                   >
                     Added
                   </button>

@@ -156,7 +156,6 @@ export default function Cart() {
                           /> */}
 
                           <p className="border p-3">{item.quantity}</p>
-
                           <button
                             type="button"
                             className="flex h-7 w-7 items-center justify-center"
@@ -222,10 +221,7 @@ export default function Cart() {
                   </h1> */}
                   <button
                     className="px-4 py-2 mt-32 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-                    onClick={() => {
-                      clearCart();
-                      // notifyCartCleared();
-                    }}
+                    onClick={() => clearCart()}
                   >
                     Clear cart
                   </button>
@@ -245,7 +241,7 @@ export default function Cart() {
             {/* Order summary */}
             <section
               aria-labelledby="summary-heading "
-              className="mt-6 sm:mt-0 rounded-md bg-[#f9f9f9] col-span-12 sm:col-span-4  border ml-11"
+              className="mt-6 sm:mt-0 rounded-md bg-[#f9f9f9] col-span-12 sm:col-span-4  border ml-11 w-full  max-[390px]:w-8/12"
             >
               <h2
                 id="summary-heading"
