@@ -123,7 +123,10 @@ export default function Cart() {
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
-                              {item.title}
+                              {item.title.length
+                                ? item.title.substring(0, 18)
+                                : item.title}
+                              ...
                             </div>
                           </div>
                         </div>

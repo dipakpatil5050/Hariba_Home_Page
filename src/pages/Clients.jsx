@@ -1,176 +1,179 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "../components/Navbar/Navbar";
-import {
-  LoadingOutlined,
-  SmileOutlined,
-  SolutionOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Steps } from "antd";
-// import { PlusSquareOutlined } from "@ant-design/icons";
-import { FaFileUpload } from "react-icons/fa";
-import { FolderPlus } from "lucide-react";
+
+import "./documentation.css";
 
 const FileUploader = () => {
-  const [file1, setFile1] = useState(null);
-  const [file2, setFile2] = useState(null);
-  const [file3, setFile3] = useState(null);
+  const [files, setFiles] = useState(null);
+  const inputRef1 = useRef();
+  const inputRef2 = useRef();
+  const inputRef3 = useRef();
 
-  const handleFile1Change = (e) => {
-    const file = e.target.files[0];
-    setFile1(file);
+  const handleDragOver = (event) => {
+    event.preventDefault();
   };
 
-  const handleFile2Change = (e) => {
-    const file = e.target.files[0];
-    setFile2(file);
+  const handleDrop = (event) => {
+    event.preventDefault();
+    setFiles(event.dataTransfer.files);
   };
 
-  const handleFile3Change = (e) => {
-    const file = e.target.files[0];
-    setFile3(file);
-  };
+  // send files to the servers
 
   const handleUpload = async () => {
     try {
-      // Check if File System Access API is available
-      if ("showSaveFilePicker" in window) {
-        // Request file system access from the user
-        const handle = await window.showSaveFilePicker();
-
-        // Write each file to the file system
-        if (file1) {
-          await writeFileToFS(handle, file1);
-        }
-        if (file2) {
-          await writeFileToFS(handle, file2);
-        }
-        if (file3) {
-          await writeFileToFS(handle, file3);
-        }
-
-        // Optional: Display success message
-        alert("Files saved successfully!");
-      } else {
-        alert("File System Access API is not supported in this browser.");
-      }
+      setUploading(true);
+      const formData = new FormData();
+      Object.keys(files).forEach((key) => {
+        formData.append(key, files[key]);
+      });
+      const response = await fetch("http://localhost:3000/docs", {
+        method: "POST",
+        body: formData,
+      });
+      // Handle server response here
+      console.log("Upload successful", response);
+      // Reset file state after successful upload
+      setFiles(null);
     } catch (error) {
-      console.error("Error saving file:", error);
-      alert("Error saving file. Please try again.");
+      // Handle error
+      console.error("Error uploading files", error);
+    } finally {
+      setUploading(false);
     }
   };
 
-  const writeFileToFS = async (handle, file) => {
-    // Create a writable stream from the file handle
-    const writableStream = await handle.createWritable();
-    // Write the file contents to the writable stream
-    await writableStream.write(file);
-    // Close the writable stream
-    await writableStream.close();
-  };
+  if (files)
+    return (
+      <div className="uploads flex items-center justify-center">
+        <ul>
+          {Array.from(files).map((file, idx) => (
+            <li key={idx}>{file.name}</li>
+          ))}
+        </ul>
+        <div className="actions">
+          <button onClick={() => setFiles(null)}>Cancel</button>
+          <button onClick={handleUpload}>Upload</button>
+        </div>
+      </div>
+    );
 
   return (
     <>
       <Navbar />
+
       <div className="container w-6/12 mx-auto mt-40 min-[390px]:w-6/12">
         <h1 className="text-3xl font-bold flex items-center justify-center mb-4">
           Documentation
         </h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          <div className="first-container bg-gray-200 rounded-3xl p-5 h-80 w-full border">
-            <h4>
-              Client Data :
-              <div className="file-icon flex items-center">
-                <label className="cursor-pointer mr-2">
-                  <FolderPlus size={60} />
-                  <span className="text-lg text-gray-600">
-                    Choose .xlsx, .csv, Excel file
-                  </span>
-
-                  <input
-                    type="file"
-                    accept=".xlsx"
-                    onChange={handleFile1Change}
-                    className="mt-20"
-                  />
-                </label>
+          <div className="first-container  h-96 rounded-3xl w-full ">
+            <div
+              className="dropzone pb-10 pt-10 bg-sky-100 bg-opacity-35 hover:bg-opacity-85"
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
+              <span className="font-bold mt-8"> Client Data :</span>
+              <div className="icon">
+                <img src="https://i.imgur.com/nzo8mAO.png" width={85} alt="" />
               </div>
-            </h4>
+              <h1 className="text-lg mt-5">Drag and Drop Files to Upload</h1>
+              <h1>Or</h1>
+              <input
+                type="file"
+                multiple
+                onChange={(event) => setFiles(event.target.files)}
+                hidden
+                accept=".xlsx, .csv"
+                ref={inputRef1}
+              />
+              <button
+                className="bg-[#593808] text-white p-2 px-3 text-lg rounded-2xl"
+                onClick={() => inputRef1.current.click()}
+              >
+                Select Files
+              </button>
+              <span className="text-lg text-gray-600">
+                Choose .xlsx, .csv, Excel file
+              </span>
+            </div>
           </div>
 
-          <div className="second-container p-5 h-80 rounded-3xl w-full border">
-            <h4>
-              Company Logo :
-              <div className="file-icon flex items-center">
-                <label className="cursor-pointer mr-2">
-                  <FolderPlus size={60} />
-                  <span className="text-lg text-gray-600">
-                    Choose .jpg, .jpeg, .png file
-                  </span>
-                  <input
-                    type="file"
-                    accept=".jpg, .jpeg, .png"
-                    onChange={handleFile2Change}
-                    className="mt-20"
-                  />
-                </label>
-              </div>
-            </h4>
-          </div>
-          <div className="third-container bg-gray-200 rounded-3xl p-5 h-80 w-full border">
-            <h4>
-              Client Data :
-              <div className="file-icon flex items-center">
-                <label className="cursor-pointer mr-2">
-                  <FolderPlus size={60} />
-                  <span className="text-lg text-gray-600">
-                    Choose .pdf, .doc file
-                  </span>
+          {/* second container */}
 
-                  <input
-                    type="file"
-                    accept=".pdf"
-                    onChange={handleFile3Change}
-                    className="mt-20"
-                  />
-                </label>
+          <div className="second-container h-96 rounded-3xl w-full ">
+            <div
+              className="dropzone pb-10 pt-10 bg-sky-100 bg-opacity-35 hover:bg-opacity-85"
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
+              <span className="font-bold mt-8"> Company Logo :</span>
+              <div className="icon">
+                <img src="https://i.imgur.com/nzo8mAO.png" width={85} alt="" />
               </div>
-            </h4>
+              <h1 className="text-lg mt-5">Drag and Drop Files to Upload</h1>
+              <h1>Or</h1>
+              <input
+                type="file"
+                multiple
+                onChange={(event) => setFiles(event.target.files)}
+                hidden
+                accept=".jpg, .jpeg, .png, gif"
+                ref={inputRef2}
+              />
+              <button
+                className="bg-[#593808] text-white p-2 px-3 text-lg rounded-2xl"
+                onClick={() => inputRef2.current.click()}
+              >
+                Select Files
+              </button>
+              <span className="text-lg text-gray-600">
+                Choose .jpg, .jpeg, .png file
+              </span>
+            </div>
+          </div>
+
+          {/* third Container */}
+          <div className="third-container h-96 rounded-3xl w-full ">
+            <div
+              className="dropzone pb-10 pt-10 bg-sky-100 bg-opacity-35 hover:bg-opacity-85"
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+            >
+              <span className="font-bold mt-8"> Box Design :</span>
+              <div className="icon">
+                <img src="https://i.imgur.com/nzo8mAO.png" width={85} alt="" />
+              </div>
+              <h1 className="text-lg mt-5">Drag and Drop Files to Upload</h1>
+              <h1>Or</h1>
+              <input
+                type="file"
+                multiple
+                onChange={(event) => setFiles(event.target.files)}
+                hidden
+                accept=".jpg, .jpeg, .png"
+                ref={inputRef3}
+              />
+              <button
+                className="bg-[#593808] text-white p-2 px-3 text-lg rounded-2xl"
+                onClick={() => inputRef3.current.click()}
+              >
+                Select Files
+              </button>
+              <span className="text-lg text-gray-600">
+                Choose .pdf, .doc file
+              </span>
+            </div>
           </div>
         </div>
 
-        <button
+        {/* <button
           onClick={handleUpload}
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="mt-4 bg-[#593808]  hover:bg-[#595000] text-white font-bold py-2 px-4 rounded"
         >
           Upload Files
-        </button>
+        </button> */}
       </div>
-      {/* <Steps
-        items={[
-          {
-            title: "Login",
-            status: "finish",
-            icon: <UserOutlined />,
-          },
-          {
-            title: "Verification",
-            status: "finish",
-            icon: <SolutionOutlined />,
-          },
-          {
-            title: "Pay",
-            status: "process",
-            icon: <LoadingOutlined />,
-          },
-          {
-            title: "Done",
-            status: "wait",
-            icon: <SmileOutlined />,
-          },
-        ]}
-      /> */}
-      );
     </>
   );
 };
