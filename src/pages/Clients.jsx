@@ -5,9 +5,11 @@ import "./documentation.css";
 
 const FileUploader = () => {
   const [files, setFiles] = useState(null);
+
   const inputRef1 = useRef();
   const inputRef2 = useRef();
   const inputRef3 = useRef();
+  const [uploading, setUploading] = useState(false);
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -27,10 +29,13 @@ const FileUploader = () => {
       Object.keys(files).forEach((key) => {
         formData.append(key, files[key]);
       });
-      const response = await fetch("http://localhost:3000/docs", {
+      const response = await fetch("https://httpbin.org/post", {
         method: "POST",
         body: formData,
       });
+
+      const data = response.json();
+      console.log(data);
       // Handle server response here
       console.log("Upload successful", response);
       // Reset file state after successful upload
@@ -43,6 +48,8 @@ const FileUploader = () => {
     }
   };
 
+  // Section which comes after select file to upload to the server
+
   if (files)
     return (
       <div className="uploads flex items-center justify-center">
@@ -53,11 +60,14 @@ const FileUploader = () => {
         </ul>
         <div className="actions">
           <button onClick={() => setFiles(null)}>Cancel</button>
-          <button onClick={handleUpload}>Upload</button>
+          <button type="sumbit" onClick={handleUpload}>
+            Upload
+          </button>
         </div>
       </div>
     );
 
+  // till here
   return (
     <>
       <Navbar />
@@ -68,35 +78,42 @@ const FileUploader = () => {
         </h1>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           <div className="first-container  h-96 rounded-3xl w-full ">
-            <div
-              className="dropzone pb-10 pt-10 bg-sky-100 bg-opacity-35 hover:bg-opacity-85"
-              onDragOver={handleDragOver}
-              onDrop={handleDrop}
-            >
-              <span className="font-bold mt-8"> Client Data :</span>
-              <div className="icon">
-                <img src="https://i.imgur.com/nzo8mAO.png" width={85} alt="" />
-              </div>
-              <h1 className="text-lg mt-5">Drag and Drop Files to Upload</h1>
-              <h1>Or</h1>
-              <input
-                type="file"
-                multiple
-                onChange={(event) => setFiles(event.target.files)}
-                hidden
-                accept=".xlsx, .csv"
-                ref={inputRef1}
-              />
-              <button
-                className="bg-[#593808] text-white p-2 px-3 text-lg rounded-2xl"
-                onClick={() => inputRef1.current.click()}
+            <form method="post" encType="multipart/form-data">
+              <div
+                className="dropzone pb-10 pt-10 bg-sky-100 bg-opacity-35 hover:bg-opacity-85"
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}
               >
-                Select Files
-              </button>
-              <span className="text-lg text-gray-600">
-                Choose .xlsx, .csv, Excel file
-              </span>
-            </div>
+                <span className="font-bold mt-8"> Client Data :</span>
+                <div className="icon">
+                  <img
+                    src="https://i.imgur.com/nzo8mAO.png"
+                    width={85}
+                    alt=""
+                  />
+                </div>
+                <h1 className="text-lg mt-5">Drag and Drop Files to Upload</h1>
+                <h1>Or</h1>
+                <input
+                  type="file"
+                  name="file"
+                  multiple
+                  onChange={(event) => setFiles(event.target.files)}
+                  hidden
+                  accept=".xlsx, .csv"
+                  ref={inputRef1}
+                />
+                <button
+                  className="bg-[#593808] text-white p-2 px-3 text-lg rounded-2xl"
+                  onClick={() => inputRef1.current.click()}
+                >
+                  Select Files
+                </button>
+                <span className="text-lg text-gray-600">
+                  Choose .xlsx, .csv, Excel file
+                </span>
+              </div>
+            </form>
           </div>
 
           {/* second container */}
@@ -151,7 +168,7 @@ const FileUploader = () => {
                 multiple
                 onChange={(event) => setFiles(event.target.files)}
                 hidden
-                accept=".jpg, .jpeg, .png"
+                accept=".pdf, .doc, .docx,"
                 ref={inputRef3}
               />
               <button
@@ -168,6 +185,7 @@ const FileUploader = () => {
         </div>
 
         {/* <button
+          type="submit"
           onClick={handleUpload}
           className="mt-4 bg-[#593808]  hover:bg-[#595000] text-white font-bold py-2 px-4 rounded"
         >

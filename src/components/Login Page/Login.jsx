@@ -12,8 +12,26 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [authData, setAuthData] = useState([]);
 
-  
+  // const API_URL = "http://localhost:3000/users";
+
+  // useEffect(() => {
+  //   const fetchAuthData = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const response = await fetch(API_URL);
+  //       const jsonData = await response.json();
+  //       setAuthData(jsonData);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setLoading(false);
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+  //   fetchAuthData();
+  // }, []);
+
   const handleLogin = () => {
     if (username === "admin" && password === "admin") {
       setIsAuthenticate(true);
