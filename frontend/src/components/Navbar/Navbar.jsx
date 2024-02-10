@@ -6,6 +6,7 @@ import HoverCart from "../Home Page/HoverCart";
 import { CartContext } from "../../contexts/CartContext";
 import Cart from "../Home Page/Cart";
 import { Link } from "react-router-dom";
+import { FiUser } from "react-icons/fi";
 
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
@@ -93,6 +94,13 @@ function Navbar() {
           </nav>
         </div>
         {/* onClick={setShowModal1(true)} */}
+        <div className="user-logo absolute right-40">
+          <label htmlFor="">
+            <FiUser size={25} />
+            <span>user name</span>
+          </label>
+        </div>
+
         <div className="relative group">
           <a
             href="/cart"

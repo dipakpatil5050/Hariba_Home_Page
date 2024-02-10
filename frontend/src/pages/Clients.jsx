@@ -284,7 +284,6 @@
 //       console.error("Error uploading file: ", error);
 //       alert("Error uploading file");
 //     }
-
 //   };
 
 //   return (
@@ -301,10 +300,12 @@
 // using index file and Form tag
 
 import React from "react";
+import Navbar from "../components/Navbar/Navbar";
 
 function Clients() {
   return (
-    <>
+    <div className="h-screen w-full flex items-center justify-center">
+      <Navbar />
       <form
         action="http://localhost:3000/upload"
         method="post"
@@ -313,7 +314,7 @@ function Clients() {
         <input type="file" name="file" />
         <button type="submit">Upload</button>
       </form>
-    </>
+    </div>
   );
 }
 
