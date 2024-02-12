@@ -98,7 +98,6 @@ function Navbar() {
           </nav>
         </div>
         {/* onClick={setShowModal1(true)} */}
-
         <div className="user-logo absolute right-40 flex items-center justify-center group">
           <label htmlFor="">
             <FiUser size={25} className="ml-4" />

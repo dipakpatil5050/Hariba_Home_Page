@@ -140,20 +140,20 @@ function CardModal({ product, onClose }) {
                 <div className="group flex h-11 flex-shrink-0 items-center justify-between overflow-hidden rounded-md border border-gray-300 md:h-12">
                   <button
                     className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center border-e border-gray-300 transition duration-300 ease-in-out focus:outline-none md:w-12"
-                    onClick={() => {
-                      add();
-                    }}
+                    onClick={() => remove()}
                   >
-                    <MdAdd size={20} />
+                    <FiMinus size={20} />
                   </button>
                   <span className="duration-250 text-heading flex h-full w-12  flex-shrink-0 cursor-default items-center justify-center text-base font-semibold transition-colors ease-in-out  md:w-20 xl:w-24">
                     <h6 className=" p-5 text-2xl">{quantity}</h6>
                   </span>
                   <button
                     className="text-heading hover:bg-heading flex h-full w-10 flex-shrink-0 items-center justify-center transition border duration-300 ease-in-out md:w-12"
-                    onClick={() => remove()}
+                    onClick={() => {
+                      add();
+                    }}
                   >
-                    <FiMinus size={20} />
+                    <MdAdd size={20} />
                   </button>
                 </div>
               </div>
