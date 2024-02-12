@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
+import Card from "./Card";
 
 const Home = ({ images }) => {
   const settings = {
@@ -25,6 +26,7 @@ const Home = ({ images }) => {
           ))}
         </Slider>
       </div>
+      <Card />
     </>
   );
 };

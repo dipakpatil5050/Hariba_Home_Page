@@ -6,29 +6,15 @@ import Layout from "../Layout/Layout";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "lucide-react";
+import { useLogin } from "../../contexts/LoginContext.jsx";
 
 const Login = () => {
+  const { login } = useLogin();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  // const [authData, setAuthData] = useState([]);
-
-  // user static login validation
-
-  // const handleLogin = () => {
-  //   if (username === "admin" && password === "admin") {
-  //     setIsAuthenticate(true);
-  //     toast.success("Login successful!");
-  //   } else {
-  //     if (username != "admin") {
-  //       toast.error("Invalid username");
-  //     }
-  //     if (password != "admin") {
-  //       toast.error("Invalid password");
-  //     }
-  //   }
-  // };.
 
   //Login validation from API
 
@@ -42,6 +28,7 @@ const Login = () => {
       if (user) {
         toast.success("Login successful!");
         setIsAuthenticate(true);
+        login(username);
         // Perform additional actions after successful login, e.g., redirect to a dashboard
       } else {
         if (!users.some((u) => u.username === username)) {
@@ -118,7 +105,7 @@ const Login = () => {
                     type="button"
                     className="border bg-[#251805] text-white hover:bg-white hover:text-black duration-500 ease-in-out"
                   >
-                    LOGIN
+                    Login
                   </button>
 
                   {/*                                     

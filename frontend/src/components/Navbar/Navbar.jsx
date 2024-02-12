@@ -7,9 +7,13 @@ import { CartContext } from "../../contexts/CartContext";
 import Cart from "../Home Page/Cart";
 import { Link } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
+import { useLogin } from "../../contexts/LoginContext";
+import User from "./User";
 
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
+
+  const { username } = useLogin();
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
@@ -48,23 +52,23 @@ function Navbar() {
                   : "hidden"
               } lg:flex justify-between gap-5 items-center lg:order-2 text-[#593808]`}
             >
-              <a href="/home">
+              <Link to="/home">
                 <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                   Home
                 </li>
-              </a>
-              <a href="/about">
+              </Link>
+              <Link to="/about">
                 <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                   About
                 </li>{" "}
-              </a>
+              </Link>
               <li className="relative group">
-                <a
-                  href="/products"
+                <Link
+                  to="/products"
                   className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3"
                 >
                   Products
-                </a>
+                </Link>
                 {/* <ul className="absolute hidden group-hover:block bg-gray-100 rounded-md p-20 gap-10 shadow-md mt-1">
                 <li>
                   <a href="/category1">Category 1</a>
@@ -80,29 +84,33 @@ function Navbar() {
                 </li>
               </ul> */}
               </li>
-              <a href="/contact">
+              <Link to="/contact">
                 <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                   Contact
                 </li>{" "}
-              </a>
-              <a href="/clients">
+              </Link>
+              <Link to="/clients">
                 <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
                   Documentation
                 </li>
-              </a>
+              </Link>
             </ul>
           </nav>
         </div>
         {/* onClick={setShowModal1(true)} */}
-        <div className="user-logo absolute right-40">
+
+        <div className="user-logo absolute right-40 flex items-center justify-center group">
           <label htmlFor="">
-            <FiUser size={25} />
-            <span>user name</span>
+            <FiUser size={25} className="ml-4" />
+            <span>{username}</span>
+            <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
+              <User />
+            </div>
           </label>
         </div>
 
         <div className="relative group">
-          <a
+          <Link
             href="/cart"
             className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
           >
@@ -111,7 +119,7 @@ function Navbar() {
             <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
               {cartItems.length}
             </span>
-          </a>
+          </Link>
           <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
             <HoverCart />
             {/* <Cart /> */}

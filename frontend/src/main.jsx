@@ -22,11 +22,11 @@ import Products from "./pages/Products.jsx";
 import { CartProvider } from "./contexts/CartContext.jsx";
 import Cart from "./components/Home Page/Cart.jsx";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
+import { LoginProvider } from "./contexts/LoginContext.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      {/* <ErrorBoundary FallbackComponent={<NoPage />}> */}
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Layout />} />
       <Route path="/about" element={<About />} />
@@ -34,19 +34,21 @@ const router = createBrowserRouter(
       <Route path="/products" element={<Products />} />
       <Route path="/clients" element={<Clients />} />
       <Route path="/error" element={<NoPage />} />
-      {/* <Route path="/cart" element={<ShoppingCart />} /> */}
+
       <Route path="/cart" element={<Cart />} />
-      {/* </ErrorBoundary> */}
     </Route>
   )
 );
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <CartProvider>
-        <RouterProvider router={router} />
-        {/* <App /> */}
-      </CartProvider>
+      <LoginProvider>
+        <CartProvider>
+          <RouterProvider router={router} />
+          {/* <App /> */}
+        </CartProvider>
+      </LoginProvider>
+
       <ToastContainer
         position="top-right"
         autoClose={5000}
