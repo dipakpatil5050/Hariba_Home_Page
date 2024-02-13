@@ -10,7 +10,6 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Login from "./components/Login Page/Login.jsx";
-import Layout from "./components/Layout/Layout.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 // import { ErrorBoundary } from "react-error-boundary";
@@ -24,19 +23,62 @@ import Cart from "./components/Home Page/Cart.jsx";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
 import { LoginProvider } from "./contexts/LoginContext.jsx";
 import { Toaster } from "react-hot-toast";
+import Layout from "./components/Layout/Layout.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Layout />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/clients" element={<Clients />} />
+      <Route
+        path="/home"
+        element={
+          <Layout>
+            <App />
+          </Layout>
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          <Layout>
+            <About />
+          </Layout>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <Layout>
+            <Contact />
+          </Layout>
+        }
+      />
+      <Route
+        path="/products"
+        element={
+          <Layout>
+            <Products />
+          </Layout>
+        }
+      />
+      <Route
+        path="/clients"
+        element={
+          <Layout>
+            <Clients />
+          </Layout>
+        }
+      />
       <Route path="/error" element={<NoPage />} />
 
-      <Route path="/cart" element={<Cart />} />
+      <Route
+        path="/cart"
+        element={
+          <Layout>
+            <Cart />
+          </Layout>
+        }
+      />
     </Route>
   )
 );
@@ -47,10 +89,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <CartProvider>
           <RouterProvider router={router} />
           {/* <App /> */}
+          <Toaster position="top-right" />
         </CartProvider>
       </LoginProvider>
 
-      <Toaster />
       {/* <ToastContainer
         position="top-center"
         autoClose={5000}

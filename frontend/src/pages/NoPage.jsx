@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar/Navbar";
 export function NoPage() {
   return (
     <>
-      <Navbar />
       <div className="py-10 h-[60rem] w-screen flex items-center justify-center">
         <div className="text-center">
           <p className="text-base font-semibold text-black">404</p>

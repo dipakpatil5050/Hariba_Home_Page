@@ -1,15 +1,16 @@
-import React, { Children } from "react";
-import Navbar from "../Navbar/Navbar";
+import React from "react";
 import Home from "../Home Page/Home";
 import images from "../Home Page/images";
+
+import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-function Layout() {
+
+function Layout({ children }) {
   return (
     <>
       <Navbar />
       <Home images={images} />
-      {/* <Card /> */}
-      {/* <Products /> */}
+      <main>{children}</main>
       <Footer />
     </>
   );

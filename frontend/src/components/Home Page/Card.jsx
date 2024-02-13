@@ -61,7 +61,7 @@ function Card() {
 
   return (
     <>
-      <Toaster />
+      <Toaster position="top-center" />
 
       {loading && <div className="loader">Loading...</div>}
       <div className=" items-center px-20 ">

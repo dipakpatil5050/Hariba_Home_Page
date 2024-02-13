@@ -7,7 +7,7 @@ import Layout from "../Layout/Layout";
 // import "react-toastify/dist/ReactToastify.css";
 import { Link } from "lucide-react";
 import { useLogin } from "../../contexts/LoginContext.jsx";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { login } = useLogin();
@@ -126,7 +126,6 @@ const Login = () => {
           </div>
         </div>
       )}
-      <Toaster />
     </div>
   );
 };
