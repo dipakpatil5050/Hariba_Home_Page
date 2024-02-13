@@ -191,11 +191,9 @@ export default function Cart() {
                                 Swal.fire({
                                   title:
                                     "Are you sure you want to remove this item?",
-
                                   showCancelButton: true,
                                   confirmButtonColor: "#3085d6",
                                   cancelButtonColor: "#d33",
-                                  showCancelButton: true,
                                   icon: "warning",
                                   confirmButtonText: "yes",
                                   denyButtonText: `Cancel`,

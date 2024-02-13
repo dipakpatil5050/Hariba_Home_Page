@@ -34,7 +34,7 @@ function CardModal({ product, onClose }) {
       // setPrice(totalprice - 500);
       setQuantity(quantity - 1);
     } else {
-      toast.warning("select minimum one item");
+      toast.error("select minimum one item");
     }
   };
 

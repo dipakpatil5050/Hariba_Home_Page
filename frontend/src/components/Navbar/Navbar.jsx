@@ -87,20 +87,21 @@ function Navbar() {
                 >
                   Products
                 </Link>
+                
                 {/* <ul className="absolute hidden group-hover:block bg-gray-100 rounded-md p-20 gap-10 shadow-md mt-1">
-                <li>
-                  <a href="/category1">Category 1</a>
-                </li>
-                <li>
-                  <a href="/category2">Category 2</a>
-                </li>
-                <li>
-                  <a href="/category2">Category 2</a>
-                </li>
-                <li>
-                  <a href="/category2">Category 2</a>
-                </li>
-              </ul> */}
+                  <li>
+                    <a href="/category1">Category 1</a>
+                  </li>
+                  <li>
+                    <a href="/category2">Category 2</a>
+                  </li>
+                  <li>
+                    <a href="/category2">Category 2</a>
+                  </li>
+                  <li>
+                    <a href="/category2">Category 2</a>
+                  </li>
+                </ul> */}
               </li>
               <Link to="/contact">
                 <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
@@ -118,6 +119,7 @@ function Navbar() {
 
         <div className="right-side-icons flex items-center justify-center gap-10">
           {/* Profile dropdown */}
+
           <span className="-mr-5 block max-[390px]:hidden pt-3 ">
             Welcome {username}
           </span>

@@ -6,8 +6,9 @@ import { GoMoveToTop } from "react-icons/go";
 function Footer() {
   return (
     <>
-      <div className="topBtn">
-        <div className="w-full flex justify-end items-start pt-7 pr-10">
+      <div className="pt-10"></div>
+      {/* <div className="topBtn">
+        <div className="w-full flex justify-end items-start pb-16 pt-7 pr-10">
           <Link
             to="/home"
             className="flex items-center
@@ -16,14 +17,14 @@ function Footer() {
               window.scrollTo(0, 0);
             }}
           >
+          
             <p className="object-contain w-52 flex justify-end items-center">
               <GoMoveToTop size={23} aria-label="Top" />
             </p>
           </Link>
         </div>
-      </div>
-
-      <section className="relative overflow-hidden bg-white py-8">
+      </div> */}
+      {/* <section className="relative overflow-hidden bg-white py-8">
         <div className="container relative z-10 mx-auto px-4">
           <div className="-m-8 flex flex-wrap items-center justify-between">
             <div className="w-auto p-8">
@@ -123,7 +124,7 @@ function Footer() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
