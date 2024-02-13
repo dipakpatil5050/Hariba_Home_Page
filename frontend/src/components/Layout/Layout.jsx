@@ -9,7 +9,6 @@ function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <Home images={images} />
       <main>{children}</main>
       <Footer />
     </>

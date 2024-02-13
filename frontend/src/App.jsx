@@ -6,6 +6,7 @@ import Products from "./components/Home Page/Products.jsx";
 import Card from "./components/Home Page/Card.jsx";
 // import Products from "./components/Home Page/Products.jsx";
 // import AddToCart from "./components/Home Page/AddToCart.jsx";
+
 function App() {
   return (
     <Home images={images} />

@@ -10,7 +10,6 @@ import { IoCloseOutline } from "react-icons/io5";
 export default function HoverCart() {
   const { cartItems, deleteFromCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
-
   return (
     <div
       className=" fixed inset-0 flex h-[10vh]  items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"

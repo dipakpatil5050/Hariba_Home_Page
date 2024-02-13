@@ -8,14 +8,15 @@ import Layout from "../Layout/Layout";
 import { Link } from "lucide-react";
 import { useLogin } from "../../contexts/LoginContext.jsx";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { login } = useLogin();
-
+  const { login, isLoggedIn } = useLogin();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   //Login validation from API
 
@@ -30,6 +31,7 @@ const Login = () => {
         toast.success("Login successful!");
         setIsAuthenticate(true);
         login(username);
+        navigate("/home");
         // Perform additional actions after successful login, e.g., redirect to a dashboard
       } else {
         if (!users.some((u) => u.username === username)) {
@@ -48,7 +50,7 @@ const Login = () => {
   return (
     <div>
       {isAuthenticate ? (
-        <Layout />
+        <Home />
       ) : (
         <div className="login-right login-main ">
           <div className="login-right-container">
@@ -108,15 +110,6 @@ const Login = () => {
                   >
                     Login
                   </button>
-
-                  {/*                                     
-                  <button
-                    onClick={handleLogin}
-                    // className="bn632-hover bn28 text-[#251805] logBtn"
-                    className="bg-[#251805] mt-5 hover:text-white logBtn hover:bg-white text-black border-black"
-                  >
-                    Login
-                  </button> */}
                 </div>
               </form>
             </div>
