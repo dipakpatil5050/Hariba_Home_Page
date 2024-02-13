@@ -3,10 +3,11 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import "./login.css";
 import "./responsive.css";
 import Layout from "../Layout/Layout";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { Link } from "lucide-react";
 import { useLogin } from "../../contexts/LoginContext.jsx";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { login } = useLogin();
@@ -125,6 +126,7 @@ const Login = () => {
           </div>
         </div>
       )}
+      <Toaster />
     </div>
   );
 };

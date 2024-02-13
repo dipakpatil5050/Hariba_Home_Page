@@ -4,7 +4,9 @@ import { IoPricetagOutline } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
 import { FiMinus } from "react-icons/fi";
 import "./Card.css";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
+
 // import { Star, ChevronDown } from "lucide-react";
 import { CartContext } from "../../contexts/CartContext.jsx";
 // import Cart from "./Cart.jsx";

@@ -3,8 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { IoPricetagOutline } from "react-icons/io5";
 import "./Card.css";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import CardModal from "./CardModal.jsx";
 import { BsCart3 } from "react-icons/bs";

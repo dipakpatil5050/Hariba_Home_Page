@@ -15,14 +15,15 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 // import { ErrorBoundary } from "react-error-boundary";
 import { NoPage } from "./pages/NoPage.jsx";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import Clients from "./pages/Clients.jsx";
 import Products from "./pages/Products.jsx";
 import { CartProvider } from "./contexts/CartContext.jsx";
 import Cart from "./components/Home Page/Cart.jsx";
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
 import { LoginProvider } from "./contexts/LoginContext.jsx";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,8 +50,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </CartProvider>
       </LoginProvider>
 
-      <ToastContainer
-        position="top-right"
+      <Toaster />
+      {/* <ToastContainer
+        position="top-center"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -61,7 +63,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         pauseOnHover
         theme="light"
         transition:Bounce
-      />
+      /> */}
     </ErrorBoundary>
   </React.StrictMode>
 );

@@ -8,7 +8,9 @@ import CardModal from "./CardModal";
 import "./Card.css";
 import { RefreshCcw } from "lucide-react";
 // import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
+
 // import Cart from "./Cart.jsx";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import { FcCheckmark } from "react-icons/fc";
@@ -59,7 +61,7 @@ function Card() {
 
   return (
     <>
-      <ToastContainer />
+      <Toaster />
 
       {loading && <div className="loader">Loading...</div>}
       <div className=" items-center px-20 ">
