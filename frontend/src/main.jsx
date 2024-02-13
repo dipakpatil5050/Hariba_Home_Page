@@ -89,7 +89,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <CartProvider>
           <RouterProvider router={router} />
           {/* <App /> */}
-          <Toaster position="top-right" />
+          <Toaster />
         </CartProvider>
       </LoginProvider>
 

@@ -30,18 +30,20 @@ export default function User() {
       tabIndex={-1}
     >
       <div className="mt-6 space-y-6 bg-white p-5 rounded-lg min-[390px]:mt-7 ">
-        <Link to="/">
-          <h1
-            className="text-lg font-bold w-96 flex item-center
+        <button onClick={handleLogout}>
+          <Link to="/">
+            <h1
+              className="text-lg font-bold w-96 flex item-center
            justify-center text-black"
-          >
-            <FaPowerOff
-              size={20}
-              className="flex items-center justify-center"
-            />
-            <span className="pl-2 font-bold"> Logout</span>
-          </h1>
-        </Link>
+            >
+              <FaPowerOff
+                size={20}
+                className="flex items-center justify-center"
+              />
+              <span className="pl-2 font-bold"> Logout</span>
+            </h1>
+          </Link>
+        </button>
       </div>
     </div>
   );

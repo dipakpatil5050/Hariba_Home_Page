@@ -85,7 +85,7 @@ function CardModal({ product, onClose }) {
       <div
         ref={modalRef}
         onClick={closeModal}
-        className="product-detail-cart fixed inset-0 bg-opacity-30  w-full bg-black backdrop-blur-sm flex items-center justify-center text-black shadow-xl"
+        className="product-detail-cart fixed inset-0 bg-opacity-30 top-20 w-full bg-black backdrop-blur-sm flex items-center justify-center text-black shadow-xl"
       >
         <div className="mx-auto max-w-7xl md:px-8 2xl:px-16 bg-white rounded-xl px-5 py-10 gap-4 flex flex-col items-center ">
           <div className="">

@@ -61,10 +61,10 @@ function Card() {
 
   return (
     <>
-      <Toaster position="top-center" />
+      <Toaster />
 
       {loading && <div className="loader">Loading...</div>}
-      <div className=" items-center px-20 ">
+      <div className=" items-center px-20 pt-10 ">
         <h1 className="text-3xl tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
           Products
         </h1>
@@ -77,7 +77,7 @@ function Card() {
           </button>
         } */}
       </div>
-      <div className="rounded-md m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
+      <div className="rounded-md  m-7 p-2  flex  items-center justify-center flex-wrap cursor-pointer">
         {data?.slice(0, visible).map((product) => {
           const isInCart = cartItems.some((item) => item.id === product.id);
 

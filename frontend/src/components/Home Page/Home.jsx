@@ -18,7 +18,7 @@ const Home = ({ images }) => {
 
   return (
     <>
-      <div className="imgslider overflow-hidden">
+      <div className="imgslider overflow-hidden  relative top-14 ">
         <Slider {...settings}>
           {images.map((item) => (
             <div key={item.id}>
