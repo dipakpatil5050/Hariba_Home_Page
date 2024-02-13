@@ -2,7 +2,15 @@ import { ArrowLeft } from "lucide-react";
 import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 
+import { useNavigate } from "react-router-dom";
+
 export function NoPage() {
+  const navigate = useNavigate();
+
+  const goback = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <div className="py-10 h-[60rem] w-screen flex items-center justify-center">
@@ -17,6 +25,8 @@ export function NoPage() {
           <div className="mt-4 flex items-center justify-center gap-x-3">
             <button
               //   onChange={(window.location.href = "/home")}
+
+              onClick={goback}
               type="button"
               className="inline-flex items-center rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >

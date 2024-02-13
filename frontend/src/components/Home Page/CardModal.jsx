@@ -79,7 +79,6 @@ function CardModal({ product, onClose }) {
   //   setShowModal(true);
   //   // console.log(product);
   // };
-
   return (
     <>
       <div

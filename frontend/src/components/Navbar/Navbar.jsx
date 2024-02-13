@@ -7,13 +7,21 @@ import { CartContext } from "../../contexts/CartContext";
 import Cart from "../Home Page/Cart";
 import { Link } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
-import { useLogin } from "../../contexts/LoginContext";
-import User from "./User";
+import { LoginProvider, useLogin } from "../../contexts/LoginContext";
 
+import { FaPowerOff } from "react-icons/fa";
+
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 function Navbar() {
   // const [showModal1, setShowModal1] = useState(false);
 
-  const { username } = useLogin();
+  const { username, logout, isLoggedIn } = useLogin();
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false);
@@ -23,6 +31,16 @@ function Navbar() {
   };
 
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+
+  // if (!isLoggedIn) {
+  //   return <Navigate to="/" />;
+  // }
+  const handleLogout = () => {
+    logout();
+    // <Navigate to="/" />;
+    // isLoggedIn(false);
+  };
+
   return (
     <>
       <header
@@ -97,35 +115,78 @@ function Navbar() {
             </ul>
           </nav>
         </div>
-        {/* onClick={setShowModal1(true)} */}
-        <div className="user-logo absolute right-40 flex items-center justify-center group">
-          <label htmlFor="">
-            <FiUser size={25} className="ml-4" />
-            <span>{username}</span>
+
+        <div className="right-side-icons flex items-center justify-center gap-10">
+          {/* Profile dropdown */}
+          <span className="-mr-5 block max-[390px]:hidden pt-3 ">
+            Welcome {username}
+          </span>
+          <div className="user-btn ">
+            <Menu as="div" className=" relative m-3">
+              <div>
+                <Menu.Button className="flex rounded-full bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mt-5">
+                  <img
+                    className="h-14 w-14 rounded-full"
+                    src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?uid=R134540980"
+                    alt=""
+                  />
+                </Menu.Button>
+              </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 text-sm text-gray-700 flex"
+                  >
+                    <Link
+                      to="/"
+                      className="flex items-center justify-center gap-1"
+                    >
+                      <FaPowerOff size={20} />
+                      <span className="pl-2 font-bold"> Logout</span>
+                    </Link>
+                  </button>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </div>
+
+          {/*old user icon and logout function */}
+          {/* <div className="user-logo absolute right-40 flex items-center justify-center group">
+            <label htmlFor="">
+              <FiUser size={25} className="ml-4" />
+              <span>{username}</span>
+              <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
+                <User />
+              </div>
+            </label>
+          </div> */}
+
+          <div className="relative group">
+            <Link
+              href="/cart"
+              className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
+            >
+              <BsCart3 size={25} />
+
+              <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
+                {cartItems.length}
+              </span>
+            </Link>
             <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
-              <User />
+              <HoverCart />
             </div>
-          </label>
-        </div>
-
-        <div className="relative group">
-          <Link
-            href="/cart"
-            className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
-          >
-            <BsCart3 size={25} />
-
-            <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
-              {cartItems.length}
-            </span>
-          </Link>
-          <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
-            <HoverCart />
-            {/* <Cart /> */}
           </div>
         </div>
       </header>
-      {/* {showModal1 && <HoverCart onClose={() => setShowModal1(false)} />} */}
     </>
   );
 }
