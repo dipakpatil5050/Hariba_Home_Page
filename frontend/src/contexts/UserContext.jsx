@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
   const removeFromCart = (itemId) => {
     setUserCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
   };
-   
+
   const clearCart = () => {
     setUserCart([]);
   };
@@ -40,3 +40,4 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
+

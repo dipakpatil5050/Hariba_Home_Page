@@ -69,7 +69,7 @@ const router = createBrowserRouter(
           </Layout>
         }
       />
-      <Route path="/error" element={<NoPage />} />
+      <Route path="/*" element={<NoPage />} />
 
       <Route
         path="/cart"

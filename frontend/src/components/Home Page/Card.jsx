@@ -15,6 +15,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { CartContext } from "../../contexts/CartContext.jsx";
 import { FcCheckmark } from "react-icons/fc";
 import { BsCartCheck } from "react-icons/bs";
+import Loader from "../Loader/Loader.jsx";
 
 function Card() {
   const [showModal, setShowModal] = useState(false);
@@ -63,7 +64,8 @@ function Card() {
     <>
       <Toaster />
 
-      {loading && <div className="loader">Loading...</div>}
+      {loading && <Loader />}
+      {/* {loading && <div className="loader">Loading...</div>} */}
       <div className=" items-center px-20 pt-10 ">
         <h1 className="text-3xl tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center mb-10">
           Products

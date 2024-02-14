@@ -98,7 +98,7 @@ const Login = () => {
                     Forgot password?
                   </a>
                 </div>
-                <div className="mt-6 flex items-center border-2 rounded-full justify-center ">
+                <div className="login-btn mt-6 flex items-center border-2 rounded-full justify-center ">
                   <button
                     onClick={handleLogin}
                     type="button"

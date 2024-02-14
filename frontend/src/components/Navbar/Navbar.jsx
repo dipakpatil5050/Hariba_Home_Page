@@ -87,7 +87,7 @@ function Navbar() {
                 >
                   Products
                 </Link>
-                
+
                 {/* <ul className="absolute hidden group-hover:block bg-gray-100 rounded-md p-20 gap-10 shadow-md mt-1">
                   <li>
                     <a href="/category1">Category 1</a>
@@ -160,17 +160,6 @@ function Navbar() {
               </Transition>
             </Menu>
           </div>
-
-          {/*old user icon and logout function */}
-          {/* <div className="user-logo absolute right-40 flex items-center justify-center group">
-            <label htmlFor="">
-              <FiUser size={25} className="ml-4" />
-              <span>{username}</span>
-              <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
-                <User />
-              </div>
-            </label>
-          </div> */}
 
           <div className="relative group">
             <Link

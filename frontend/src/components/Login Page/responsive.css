@@ -5,9 +5,9 @@
 }
 @media (max-width: 390px) {
   .login-center-options {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 12px;
   }
 
   .login-center-buttons {
@@ -46,6 +46,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .login-btn {
+    margin-top: 12%;
   }
 }
 
