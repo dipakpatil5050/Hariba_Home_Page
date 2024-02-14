@@ -300,13 +300,12 @@
 // using index file and Form tag
 
 import React from "react";
-import Navbar from "../components/Navbar/Navbar";
 
 function Clients() {
   return (
     <div className="h-screen w-full flex items-center justify-center">
       <form
-        action="http://localhost:3000/upload"
+        action="http://localhost:5156/upload"
         method="post"
         encType="multipart/form-data"
       >

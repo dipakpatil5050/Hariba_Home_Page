@@ -26,13 +26,13 @@ app.post("/upload", (req, res) => {
     if (err) {
       return res.status(500).send(err);
     }
-
-    res.send("File uploaded successfully!");
+    // res.send("File uploaded successfully!");
+    console.log("File uploaded successfully!");
   });
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5156;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
