@@ -41,7 +41,7 @@ function Card() {
   //   setShowCartModal(!showCartModal);
   // };
 
-  const API_URL = "http://localhost:3000/data";
+  const API_URL = "https://api1-3erk.onrender.com/data";
 
   useEffect(() => {
     const fetchData = async () => {

@@ -18,7 +18,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:3000/users");
+      const response = await fetch("https://api1-3erk.onrender.com/users");
       const users = await response.json();
       const user = users.find(
         (u) => u.username === username && u.password === password
