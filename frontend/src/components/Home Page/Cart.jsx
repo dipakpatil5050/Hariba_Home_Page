@@ -75,9 +75,10 @@ export default function Cart() {
               <h2 id="cart-heading" className="sr-only">
                 Items in your shopping cart
               </h2>
+              {/* max-[390px]:overflow-x-scroll */}
               {cartItems.length > 0 ? (
-                <div className="left-table mx-7 max-[390px]:overflow-x-scroll">
-                  <table className="min-w-full divide-y divide-gray-200 overflow-hidden table-auto">
+                <div className="left-table mr-24 pr-24 -ml-24 lg:-ml-0">
+                  <table className="overflow-hidden max-[390px]:scale-75">
                     <thead className="bg-gray-50 border">
                       <tr className="">
                         <th

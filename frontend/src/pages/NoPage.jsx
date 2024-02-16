@@ -13,7 +13,7 @@ export function NoPage() {
 
   return (
     <>
-      <div className="py-10 h-[60rem] w-screen flex items-center scale-150 justify-center">
+      <div className="h-[60rem] flex items-center scale-150 justify-center mt-44">
         <div className="text-center">
           <p className="text-5xl font-semibold text-black">404</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">

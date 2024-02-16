@@ -6,10 +6,26 @@ import { Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { IoCloseOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 export default function HoverCart() {
   const { cartItems, deleteFromCart, removeFromCart, clearCart, getCartTotal } =
     useContext(CartContext);
+
+  const notifyCartCleared = () =>
+    toast.error(`Cart cleared!`, {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+      style: {
+        backgroundColor: "#000",
+        color: "#fff",
+      },
+    });
   return (
     <div
       className=" fixed inset-0 flex h-[10vh]  items-start min-[390px]:mt-14 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"

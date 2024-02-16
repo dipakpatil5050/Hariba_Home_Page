@@ -114,7 +114,7 @@ function Card() {
 
                 <div className="pricediv mt-10">
                   <strong className="m-1  flex items-center justify-center">
-                    <IoPricetagOutline className="mr-2" /> ₹{product.price}
+                    <IoPricetagOutline className="mr-2" /> ₹ {product.price}
                   </strong>
                   <div className="addToCartBtn flex items-center justify-center mt-4">
                     {isInCart && (

@@ -45,6 +45,7 @@ const Login = () => {
 
   return (
     <div>
+      {/* <Cart /> */}
       {isAuthenticate ? (
         <Home />
       ) : (
