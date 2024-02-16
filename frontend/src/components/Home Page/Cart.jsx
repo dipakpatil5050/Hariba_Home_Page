@@ -77,8 +77,8 @@ export default function Cart() {
               </h2>
               {/* max-[390px]:overflow-x-scroll */}
               {cartItems.length > 0 ? (
-                <div className="left-table mr-24 pr-24 -ml-24 lg:-ml-0">
-                  <table className="overflow-hidden max-[390px]:scale-75">
+                <div className="left-table pr-24 -ml-24 lg:-ml-0 overflow-auto max-h-[400px] overflow-x-hidden">
+                  <table className="overflow-hidden max-[390px]:scale-75 ">
                     <thead className="bg-gray-50 border">
                       <tr className="">
                         <th
@@ -107,12 +107,9 @@ export default function Cart() {
                         >
                           Subtotal
                         </th>
-                        <th scope="col" className="relative px-6 py-3">
-                          <span className="sr-only">Remove</span>
-                        </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200 border">
+                    <tbody className="bg-white divide-y divide-gray-200 border overflow-auto max-h-[400px]">
                       {cartItems.map((item) => (
                         <tr key={item.id}>
                           <td className="px-6 py-4 whitespace-nowrap">

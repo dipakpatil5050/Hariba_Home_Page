@@ -33,8 +33,8 @@ export default function HoverCart() {
       role="dialog"
       tabIndex={-1}
     >
-      <div className="mt-6 space-y-6 bg-white p-5 rounded-lg min-[390px]:mt-7 ">
-        <ul className="space-y-4">
+      <div className="mt-6 space-y-6 bg-white p-5 rounded-lg min-[390px]:mt-7  ">
+        <ul className="space-y-4 overflow-auto max-h-[200px] overflow-x-hidden">
           {cartItems.map((product) => (
             <li key={product.id} className="flex items-center gap-4">
               <img

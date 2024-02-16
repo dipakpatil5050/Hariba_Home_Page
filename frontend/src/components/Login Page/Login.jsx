@@ -6,6 +6,7 @@ import { useLogin } from "../../contexts/LoginContext.jsx";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Cart from "../Home Page/Cart.jsx";
+import Navbar from "../Navbar/Navbar.jsx";
 
 const Login = () => {
   const { login, isLoggedIn } = useLogin();
@@ -45,7 +46,8 @@ const Login = () => {
 
   return (
     <div>
-      {/* <Cart /> */}
+      <Navbar />
+      <Cart />
       {isAuthenticate ? (
         <Home />
       ) : (
