@@ -84,9 +84,9 @@ function CardModal({ product, onClose }) {
       <div
         ref={modalRef}
         onClick={closeModal}
-        className="product-detail-cart fixed inset-0 bg-opacity-30 top-20 w-full bg-black backdrop-blur-sm flex items-center justify-center text-black shadow-xl"
+        className="product-detail-cart fixed inset-0 bg-opacity-30 top-20 w-full bg-black backdrop-blur-sm flex items-center justify-center text-black shadow-xl "
       >
-        <div className="mx-auto max-w-7xl md:px-8 2xl:px-16 bg-white rounded-xl px-5 py-10 gap-4 flex flex-col items-center ">
+        <div className=" max-w-7xl md:px-8 2xl:px-16  rounded-xl py-10 gap-4 flex flex-col items-center bg-white max-[390px]:mx-10">
           <div className="">
             <button onClick={onClose} className="relative -top-5 left-[366px]">
               <X color="black" />
@@ -105,7 +105,12 @@ function CardModal({ product, onClose }) {
             </ol>
           </div> */}
           </div>
-          <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20">
+          <div className="block grid-cols-9 items-start gap-x-10 pb-10 pt-7 lg:grid lg:pb-14 xl:gap-x-14 2xl:pb-20 max-[390px]:w-8/12  ">
+            <div className="closeBtn forMobile hidden max-[390px]:block z-50 max-[390px]:ml-80 ">
+              <button onClick={onClose} className="">
+                <X color="black" />
+              </button>
+            </div>
             <div className="col-span-5  gap-2.5">
               <div className="col-span-1 transition duration-150 ease-in hover:opacity-90">
                 <img

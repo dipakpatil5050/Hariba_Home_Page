@@ -64,8 +64,11 @@ body {
 }
 
 .login-logo {
-  align-self: center;
-  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* align-self: center; */
+  /* padding-top: 98px; */
 }
 
 .login-center {
@@ -73,8 +76,8 @@ body {
 }
 
 .login-logo img {
-  width: 250px;
-  margin-bottom: 5px;
+  /* width: 250px; */
+  /* margin-bottom: 5px; */
 }
 
 .login-center h2 {

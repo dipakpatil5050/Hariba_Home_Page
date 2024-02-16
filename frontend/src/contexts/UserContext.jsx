@@ -15,6 +15,13 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
+  // const UserInfo = (id) => {
+  //   const userData = localStorage.getItem("userData");
+  //   if (userData) {
+  //     setUserCart(JSON.parse(userData).cart || []);
+  //   }
+  // };
+
   const addToCart = (item) => {
     setUserCart((prevCart) => [...prevCart, item]);
   };
@@ -40,4 +47,3 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
-

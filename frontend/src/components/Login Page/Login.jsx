@@ -5,6 +5,7 @@ import "./responsive.css";
 import { useLogin } from "../../contexts/LoginContext.jsx";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Cart from "../Home Page/Cart.jsx";
 
 const Login = () => {
   const { login, isLoggedIn } = useLogin();
@@ -14,7 +15,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  //Login validation from API
+  //Login validation from API integration from render server
 
   const handleLogin = async () => {
     try {
@@ -28,7 +29,6 @@ const Login = () => {
         setIsAuthenticate(true);
         login(username);
         navigate("/home");
-        // Perform additional actions after successful login, e.g., redirect to a dashboard
       } else {
         if (!users.some((u) => u.username === username)) {
           toast.error("Invalid username");
@@ -48,9 +48,9 @@ const Login = () => {
       {isAuthenticate ? (
         <Home />
       ) : (
-        <div className="login-right login-main ">
+        <div className="login-right login-main overflow-hidden">
           <div className="login-right-container">
-            <div className="login-logo">
+            <div className="login-logo pt-44 ">
               <img
                 src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
                 alt=""
