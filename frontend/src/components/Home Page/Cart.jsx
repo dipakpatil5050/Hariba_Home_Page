@@ -78,7 +78,7 @@ export default function Cart() {
               {/* max-[390px]:overflow-x-scroll */}
               {cartItems.length > 0 ? (
                 <div className="left-table pr-24 -ml-24 lg:-ml-0 overflow-auto max-h-[400px] overflow-x-hidden">
-                  <table className="overflow-hidden max-[390px]:scale-75 ">
+                  <table className="overflow-hidden max-[390px]:scale-75 max-[390px]:pr-10 ">
                     <thead className="bg-gray-50 border">
                       <tr className="">
                         <th
@@ -182,11 +182,11 @@ export default function Cart() {
                               </b>
                             </div>
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <td className="py-4 text-right text-sm font-medium">
                             <div className="flex text-sm removeBtn">
                               <button
                                 type="button"
-                                className="flex items-center "
+                                className="flex items-center justify-start"
                               >
                                 <Trash
                                   size={12}
