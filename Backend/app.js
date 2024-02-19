@@ -16,8 +16,7 @@ app.use(fileUpload());
 app.post("/upload", (req, res) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.status(400).send("No files were uploaded.");
-  }
-
+  }  
   // The name of the input field (e.g. "file") is used to retrieve the uploaded file
   let uploadedFile = req.files.file;
 
@@ -36,3 +35,5 @@ const PORT = process.env.PORT || 5156;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+

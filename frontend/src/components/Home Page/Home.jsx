@@ -15,10 +15,9 @@ const Home = ({ images }) => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
-
   return (
     <>
-      <div className="imgslider overflow-hidden relative top-28 ">
+      <div className="imgslider overflow-hidden relative">
         <Slider {...settings}>
           {images.map((item) => (
             <div key={item.id}>

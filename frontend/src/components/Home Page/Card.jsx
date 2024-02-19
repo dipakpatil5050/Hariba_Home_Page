@@ -68,8 +68,8 @@ function Card() {
 
       {loading && <Loader />}
       {/* {loading && <div className="loader">Loading...</div>} */}
-      <div className=" items-center px-20 pt-10 ">
-        <h1 className="text-3xl tracking-widest uppercase font-light mt-24 flex items-center justify-center text-center">
+      <div className=" items-center px-20 ">
+        <h1 className="text-3xl tracking-widest uppercase font-light mt-10 flex items-center justify-center text-center">
           Products
         </h1>
         {/* {

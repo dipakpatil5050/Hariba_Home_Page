@@ -1,40 +1,26 @@
-import React, { useState, useContext } from "react";
-import { FaBars } from "react-icons/fa6";
-import { RxCross2 } from "react-icons/rx";
-import { BsCart3 } from "react-icons/bs";
-import HoverCart from "../Home Page/HoverCart";
-import { CartContext } from "../../contexts/CartContext";
-import Cart from "../Home Page/Cart";
+import React, { Fragment, useState, useContext } from "react";
+import { BsFillCloudSunFill } from "react-icons/bs";
+import { FiSun } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
-import { LoginProvider, useLogin } from "../../contexts/LoginContext";
-
-import { FaPowerOff } from "react-icons/fa";
-
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Dialog, Transition, Menu, Disclosure } from "@headlessui/react";
+import HoverCart from "../Home Page/HoverCart";
+import { RxCross2 } from "react-icons/rx";
+import { BsCart3 } from "react-icons/bs";
+import { FaBars } from "react-icons/fa6";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { FaPowerOff } from "react-icons/fa";
+import { LoginProvider, useLogin } from "../../contexts/LoginContext";
+import { CartContext } from "../../contexts/CartContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 function Navbar() {
-  // const [showModal1, setShowModal1] = useState(false);
-
+  const [open, setOpen] = useState(false);
   const { username, logout, isLoggedIn } = useLogin();
-
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isCartOpen, setCartOpen] = useState(false);
-  const [productCount, setProductCount] = useState(0);
-  const handleMobileMenuToggle = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
-
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
 
-  // if (!isLoggedIn) {
-  //   return <Navigate to="/" />;
-  // }
   const handleLogout = () => {
     logout();
     // <Navigate to="/" />;
@@ -42,143 +28,240 @@ function Navbar() {
   };
 
   return (
-    <>
-      <header
-        // onClick={setShowModal1(true)}
-        className="flex fixed top-0 z-40 bg-white w-screen items-center justify-between h-28"
-      >
-        <div className="logo flex items-center justify-between ">
-          <Link to="/home">
-            <img
-              className="w-24 md:w-28 lg:w-28 xl:w-28 m-5 pl-3 z-50 "
-              src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
-              alt="Company Logo"
-            />
-          </Link>
+    <div className="bg-white sticky top-0 z-50">
+      {/* Mobile View  */}
+      <Transition.Root show={open} as={Fragment}>
+        <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black bg-opacity-25" />
+          </Transition.Child>
 
-          <nav className="font-extralight mobileview  opacity-1 main flex items-center justify-end mt-1 flex-wrap ml-3 mr-10 p-0 text-gray-900">
-            <button
-              className="lg:hidden focus:outline-none bar "
-              onClick={handleMobileMenuToggle}
+          <div className="fixed inset-0 z-40 flex">
+            <Transition.Child
+              as={Fragment}
+              enter="transition ease-in-out duration-300 transform"
+              enterFrom="-translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-300 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="-translate-x-full"
             >
-              {isMobileMenuOpen ? <RxCross2 size={30} /> : <FaBars size={30} />}
-            </button>
-            <ul
-              className={`${
-                isMobileMenuOpen
-                  ? "block fixed  items-center flex flex-col justify-end top-28 p-10 right-0 bg-gray-100 z-50 w-50% gap-2 rounded-sm opacity-90 shadow-inner text-xl hover:text-bg-[#593808] ml-40 "
-                  : "hidden"
-              } lg:flex justify-between gap-5 items-center lg:order-2 text-[#593808]`}
-            >
-              <Link to="/home">
-                <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
-                  Home
-                </li>
-              </Link>
-              <Link to="/about">
-                <li className=" underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
-                  About
-                </li>{" "}
-              </Link>
-              <li className="relative group">
+              <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-lg">
+                <div className="flex px-4 pb-2 pt-28">
+                  <button
+                    type="button"
+                    className="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                    onClick={() => setOpen(false)}
+                  >
+                    <span className="sr-only">Close menu</span>
+                    <RxCross2 />
+                  </button>
+                </div>
+                <div className="space-y-3 border-t flex flex-col border-gray-200 px-4 py-6">
+                  <div className="flex flex-col gap-5">
+                    <Link
+                      to={"/home"}
+                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer mobile-tab"
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      to={"/about"}
+                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer mobile-tab"
+                    >
+                      About
+                    </Link>
+                    <Link
+                      to={"/products"}
+                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                    >
+                      Products
+                    </Link>
+                    <Link
+                      to={"/contact"}
+                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                    >
+                      Contact
+                    </Link>
+                    <Link
+                      to={"/clients"}
+                      className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer"
+                    >
+                      Documentation
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="border-t border-gray-200 px-4 py-6">
+                  <a href="#" className="-m-2 flex items-center p-2"></a>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      {/* Desktop view  */}
+
+      <header className="relative bg-white">
+        <nav aria-label="Top" className="px-4 sm:px-6 lg:px-8">
+          <div className="">
+            <div className="flex h-28 items-center">
+              <button
+                type="button"
+                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
+                onClick={() => setOpen(true)}
+              >
+                <span className="sr-only">Open menu</span>
+                <FaBars size={26} />
+              </button>
+
+              {/* Logo */}
+              <div className="flex lg:ml-0">
+                <Link to={"/home"} className="flex">
+                  <div className="flex ">
+                    <h1 className=" text-2xl font-bold text-black  px-2 py-1 rounded">
+                      {/* Hariba logo section */}
+                      <div className=" md:w-28 lg:w-28 xl:w-28 m-5 z-50 my-3">
+                        <img
+                          src="https://haribadairyfarm.com/cdn/shop/files/hariba_Logo_PNG_300x.png?v=1663151859"
+                          alt="Logo"
+                          className="w-20"
+                        />
+                      </div>
+                    </h1>
+                  </div>
+                </Link>
+              </div>
+              <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center ml-60 lg:space-x-10 ">
                 <Link
-                  to="/products"
-                  className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3"
+                  to={"/home"}
+                  className="text-xl font-medium hover:text-[#593808] text-gray-700 tab underline-hover"
+                >
+                  Home
+                </Link>
+                <Link
+                  to={"/about"}
+                  className="text-xl font-medium hover:text-[#593808] text-gray-700 tab underline-hover"
+                >
+                  About
+                </Link>
+                <Link
+                  to={"/products"}
+                  className="text-xl font-medium hover:text-[#593808] text-gray-700 tab underline-hover"
                 >
                   Products
                 </Link>
 
-                {/* <ul className="absolute hidden group-hover:block bg-gray-100 rounded-md p-20 gap-10 shadow-md mt-1">
-                  <li>
-                    <a href="/category1">Category 1</a>
-                  </li>
-                  <li>
-                    <a href="/category2">Category 2</a>
-                  </li>
-                  <li>
-                    <a href="/category2">Category 2</a>
-                  </li>
-                  <li>
-                    <a href="/category2">Category 2</a>
-                  </li>
-                </ul> */}
-              </li>
-              <Link to="/contact">
-                <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+                <Link
+                  to={"/contact"}
+                  className="text-xl font-medium hover:text-[#593808] text-gray-700 tab underline-hover"
+                >
                   Contact
-                </li>{" "}
-              </Link>
-              <Link to="/clients">
-                <li className="underline-hover hover:text-[#000000] p-3 pl-4 pr-4 pt-3 pb-3 ">
+                </Link>
+                <Link
+                  to={"/clients"}
+                  className="text-xl font-medium hover:text-[#593808] text-gray-700 tab underline-hover"
+                >
                   Documentation
-                </li>
-              </Link>
-            </ul>
-          </nav>
-        </div>
-
-        <div className="right-side-icons flex items-center justify-center gap-10">
-          {/* Profile dropdown */}
-
-          <span className="-mr-5 block max-[390px]:hidden pt-3 ">
-            Welcome {username}
-          </span>
-          <div className="user-btn ">
-            <Menu as="div" className=" relative m-3">
-              <div>
-                <Menu.Button className="flex rounded-full bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mt-5">
-                  <img
-                    className="h-14 w-14 rounded-full"
-                    src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?uid=R134540980"
-                    alt=""
-                  />
-                </Menu.Button>
+                </Link>
               </div>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 text-sm text-gray-700 flex"
+
+              <div className="ml-auto flex items-center justify-between">
+                <div className="hidden lg:ml-8 lg:flex">
+                  <a
+                    href="#"
+                    className="flex items-center hover:text-[#593808] text-gray-700 font-bold m-4"
                   >
-                    <Link
-                      to="/"
-                      className="flex items-center justify-center gap-1"
+                    Welcome, {username}
+                  </a>
+                </div>
+                <div className="user-btn ">
+                  <Menu as="div" className=" relative m-3">
+                    <div>
+                      <Menu.Button className="flex rounded-full bg-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 mt-5">
+                        <img
+                          className="h-14 w-14 rounded-full"
+                          src="https://cdn-icons-png.freepik.com/256/3135/3135715.png?uid=R134540980"
+                          alt="profile picture "
+                        />
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
                     >
-                      <FaPowerOff size={20} />
-                      <span className="pl-2 font-bold"> Logout</span>
-                    </Link>
-                  </button>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-          </div>
+                      <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <button
+                          onClick={handleLogout}
+                          className="px-4 py-2 text-sm text-gray-700 flex"
+                        >
+                          <Link
+                            to="/"
+                            className="flex items-center justify-center gap-1"
+                          >
+                            <FaPowerOff size={20} />
+                            <span className="pl-2 font-bold"> Logout</span>
+                          </Link>
+                        </button>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+                </div>
 
-          <div className="relative group">
-            <Link
-              href="/cart"
-              className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
-            >
-              <BsCart3 size={25} />
+                {/* Cart */}
+                <div className="ml-4 flow-root lg:ml-6 relative group">
+                  <Link
+                    // to={"/cart"}
+                    className="group -m-2 flex items-center p-2"
+                  >
+                    <BsCart3 size={25} />
 
-              <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
-                {cartItems.length}
-              </span>
-            </Link>
-            <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md  mt-1">
-              <HoverCart />
+                    <span className=" relative flex group items-center justify-center -top-4 pr-3">
+                      {cartItems.length}
+                    </span>
+                    <span className="sr-only">items in cart, view bag</span>
+                  </Link>
+                  <div className="absolute hidden group-hover:block z-30 w-24 mr-28 rounded-md p-10 gap-10 shadow-md mt-1">
+                    <HoverCart />
+                  </div>
+                </div>
+
+                {/* <div className="relative group">
+                  <Link
+                    href="/cart"
+                    className="underline-hover hover:text-[#000000] p-3 pt-2 pb-3  cart shopping-cart-icon pr-28"
+                  >
+                    <BsCart3 size={25} />
+
+                    <span className="absolute flex items-center justify-center top-5 right-12 pr-3">
+                      {cartItems.length}
+                    </span>
+                  </Link>
+
+                  <div className="absolute hidden group-hover:block z-30 w-24 mr-48  rounded-md p-10 gap-10 shadow-md mt-1">
+                    <HoverCart />
+                  </div>
+                </div> */}
+              </div>
             </div>
           </div>
-        </div>
+        </nav>
       </header>
-    </>
+    </div>
   );
 }
 

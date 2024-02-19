@@ -28,7 +28,7 @@ export default function HoverCart() {
     });
   return (
     <div
-      className=" fixed inset-0 flex h-[10vh]  mt-14 items-start max-[390px]:mt-28 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
+      className=" fixed inset-0 flex h-[10vh] mt-14 items-start max-[390px]:mt-28 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
       aria-modal="true"
       role="dialog"
       tabIndex={-1}
@@ -90,32 +90,33 @@ export default function HoverCart() {
             >
               Clear cart
             </button> */}
-            <div className="space-y-4 text-center">
+            <div className="space-y-4 text-center flex items-center justify-center gap-10">
               <Link to="/cart">
                 <button
                   type="button"
-                  className="w-2/5   border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  className="border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black mt-4"
                 >
                   View Cart ({cartItems.length})
                 </button>
               </Link>
-              <button
-                type="button"
-                className="w-2/5 ml-3 border-black bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                onClick={() => {
-                  clearCart();
-                  notifyCartCleared();
-                }}
-              >
-                {/* Checkout */}
-                Clear Cart
-              </button>
-              <Link to="/home">
-                <p className="inline-block text-lg text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4">
-                  Continue shopping &rarr;
-                </p>
+              <Link to="/cart">
+                <button
+                  type="button"
+                  className="border border-black px-3 py-2 text-sm font-semibold text-white bg-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  onClick={() => {
+                    clearCart();
+                    notifyCartCleared();
+                  }}
+                >
+                  Clear Cart
+                </button>
               </Link>
             </div>
+            <Link to="/home">
+              <p className="inline-block text-lg text-gray-600 transition hover:text-gray-700 hover:underline hover:underline-offset-4 mt-3">
+                Continue shopping &rarr;
+              </p>
+            </Link>
           </div>
         ) : (
           <h1

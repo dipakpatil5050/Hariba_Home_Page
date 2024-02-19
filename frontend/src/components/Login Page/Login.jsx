@@ -46,8 +46,8 @@ const Login = () => {
 
   return (
     <div>
-      {/* <Navbar />
-      <Cart /> */}
+      {/* <Navbar /> */}
+      {/* <Cart /> */}
       {isAuthenticate ? (
         <Home />
       ) : (
