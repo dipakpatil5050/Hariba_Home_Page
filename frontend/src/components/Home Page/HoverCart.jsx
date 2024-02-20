@@ -28,7 +28,7 @@ export default function HoverCart() {
     });
   return (
     <div
-      className=" fixed inset-0 flex h-[10vh] mt-14 items-start max-[390px]:mt-28 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
+      className=" fixed inset-0 flex h-[10vh] mt-14 items-start max-[390px]:mt-16 mr-0 justify-end mb-6 z-50 rounded-lg  p-4 pt-4 sm:p-6 lg:p-8"
       aria-modal="true"
       role="dialog"
       tabIndex={-1}
