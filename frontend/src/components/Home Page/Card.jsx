@@ -1,26 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
-import {
-  IoCheckmarkDone,
-  IoCheckmarkDoneOutline,
-  IoPricetagOutline,
-} from "react-icons/io5";
+import { IoPricetagOutline } from "react-icons/io5";
 import CardModal from "./CardModal";
 import "./Card.css";
 import { RefreshCcw } from "lucide-react";
-// import { Link } from "react-router-dom";
-// import { ToastContainer, toast } from "react-toastify";
+
 import toast, { Toaster } from "react-hot-toast";
 
-// import Cart from "./Cart.jsx";
 import { CartContext } from "../../contexts/CartContext.jsx";
-import { FcCheckmark } from "react-icons/fc";
-import { BsCartCheck } from "react-icons/bs";
+
 import Loader from "../Loader/Loader.jsx";
 
 function Card() {
   const [showModal, setShowModal] = useState(false);
   const [visible, setVisible] = useState(6);
-  const [selectedProduct, setSelectedProduct] = useState([null]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [data, setData] = useState([]);
   // const [showCartModal, setShowCartModal] = useState(false);
   const { cartItems } = useContext(CartContext);
@@ -56,6 +49,7 @@ function Card() {
       } catch (error) {
         setLoading(false);
         console.error("Error fetching data:", error);
+        toast.error("Error fetching data from API");
       }
     };
     fetchData();

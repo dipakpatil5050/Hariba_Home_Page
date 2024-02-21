@@ -13,10 +13,8 @@ import {
 import Login from "./components/Login Page/Login.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-// import { ErrorBoundary } from "react-error-boundary";
 import { NoPage } from "./pages/NoPage.jsx";
-// import { ToastContainer } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+
 import Clients from "./pages/Clients.jsx";
 import Products from "./pages/Products.jsx";
 import { CartProvider } from "./contexts/CartContext.jsx";
@@ -25,6 +23,10 @@ import ErrorBoundary from "./ErrorBoundary/ErrorBoundary.jsx";
 import { LoginProvider } from "./contexts/LoginContext.jsx";
 import { Toaster } from "react-hot-toast";
 import Layout from "./components/Layout/Layout.jsx";
+import HomePage from "./components/Home Page/HomePage.jsx";
+import Home from "./components/Home Page/Home.jsx";
+import images from "./components/Home Page/images.js";
+// import App from "./components/Home Page/App.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +36,7 @@ const router = createBrowserRouter(
         path="/home"
         element={
           <Layout>
-            <App />
+            <HomePage />
           </Layout>
         }
       />
@@ -83,6 +85,7 @@ const router = createBrowserRouter(
     </Route>
   )
 );
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ErrorBoundary>

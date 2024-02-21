@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const LoginContext = createContext();
 
@@ -8,14 +8,27 @@ export const LoginProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
 
+  useEffect(() => {
+    const checkLoggedInStatus = () => {
+      const storedUsername = localStorage.getItem("username");
+      if (storedUsername) {
+        setUsername(storedUsername);
+        setIsLoggedIn(true);
+      }
+    };
+    checkLoggedInStatus();
+  }, []);
+
   const login = (username) => {
     setUsername(username);
     setIsLoggedIn(true);
+    localStorage.setItem("username", username);
   };
 
   const logout = () => {
     setUsername("");
     setIsLoggedIn(false);
+    localStorage.removeItem("username");
   };
 
   return (
