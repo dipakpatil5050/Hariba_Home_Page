@@ -28,6 +28,7 @@ const Login = () => {
       if (user) {
         toast.success("Login successful!");
         setIsAuthenticate(true);
+
         login(username);
         navigate("/home");
       } else {

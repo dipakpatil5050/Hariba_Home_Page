@@ -70,8 +70,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]); // Include cartItems as a dependency here
-
+  }, [cartItems]);
   return (
     <CartContext.Provider
       value={{

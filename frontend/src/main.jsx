@@ -99,3 +99,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </ErrorBoundary>
   </React.StrictMode>
 );
+
+// import React from "react";
+// import ReactDOM from "react-dom/client";
+// import App from "./App.jsx";
+// import { LoginProvider } from "./contexts/LoginContext.jsx";
+// import { CartProvider } from "./contexts/CartContext.jsx";
+// import { Toaster } from "react-hot-toast";
+
+// ReactDOM.createRoot(document.getElementById("root")).render(
+//   <React.StrictMode>
+//     <LoginProvider>
+//       <CartProvider>
+//         <App />
+//         <Toaster />
+//       </CartProvider>
+//     </LoginProvider>
+//   </React.StrictMode>
+// );

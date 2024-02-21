@@ -1,8 +1,12 @@
-import Home from "./components/Home Page/Home.jsx";
-import images from "./components/Home Page/images.js";
-
+import { RouterProvider } from "react-router-dom";
+import { router } from "./Routes/Routes.jsx";
 function App() {
-  return <Home images={images} />;
+  return (
+    <div>
+      {/* <RouterProvider router={router} /> */}
+      app
+    </div>
+  );
 }
 
 export default App;

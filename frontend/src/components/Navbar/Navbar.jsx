@@ -12,7 +12,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FaPowerOff } from "react-icons/fa";
 import { LoginProvider, useLogin } from "../../contexts/LoginContext";
 import { CartContext } from "../../contexts/CartContext";
-
+import { Navigate } from "react-router-dom";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -20,10 +20,10 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const { username, logout, isLoggedIn } = useLogin();
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
-
   const handleLogout = () => {
     logout();
-    // <Navigate to="/" />;
+    localStorage.clear("user");
+    <Navigate to="/" />;
     // isLoggedIn(false);
   };
 
