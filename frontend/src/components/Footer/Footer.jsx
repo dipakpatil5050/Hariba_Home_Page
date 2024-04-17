@@ -7,14 +7,17 @@ function Footer() {
   return (
     <>
       <div className="pt-10"></div>
-      {/* <div className="topBtn">
+      <div className="topBtn">
         <div className="w-full flex justify-end items-start pb-16 pt-7 pr-10">
           <Link
             to="/home"
             className="flex items-center
 "
             onClick={() => {
-              window.scrollTo(0, 0);
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
           
@@ -23,8 +26,8 @@ function Footer() {
             </p>
           </Link>
         </div>
-      </div> */}
-      {/* <section className="relative overflow-hidden bg-white py-8">
+      </div>
+      <section className="relative overflow-hidden bg-white py-8">
         <div className="container relative z-10 mx-auto px-4">
           <div className="-m-8 flex flex-wrap items-center justify-between">
             <div className="w-auto p-8">
@@ -124,7 +127,7 @@ function Footer() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 }
